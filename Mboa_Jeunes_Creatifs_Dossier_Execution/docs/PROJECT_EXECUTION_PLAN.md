@@ -73,10 +73,10 @@ Les identifiants ci-dessous servent au suivi. Une tâche ne passe à `TERMINÉ` 
 
 | ID | Tâche | Dépendance | Critère d'acceptation | Statut |
 |---|---|---|---|---|
-| MJC-000 | Obtenir/ouvrir le dépôt Angular | Aucune | Répertoire source accessible et branche de travail créée | À FAIRE |
-| MJC-001 | Auditer Angular, Node, npm, dépendances et scripts | MJC-000 | Versions et commandes documentées | À FAIRE |
-| MJC-002 | Examiner le code, les pages et tests existants | MJC-000 | Inventaire des modules et risques de régression | À FAIRE |
-| MJC-003 | Créer branche de travail et baseline Git | MJC-000 | État initial sauvegardé, build et tests de référence connus | À FAIRE |
+| MJC-000 | Obtenir/ouvrir le dépôt Angular | Aucune | Répertoire source accessible et branche de travail créée | TERMINÉ |
+| MJC-001 | Auditer Angular, Node, npm, dépendances et scripts | MJC-000 | Versions et commandes documentées | TERMINÉ |
+| MJC-002 | Examiner le code, les pages et tests existants | MJC-000 | Inventaire des modules et risques de régression | TERMINÉ |
+| MJC-003 | Créer branche de travail et baseline Git | MJC-000 | État initial sauvegardé, build et tests de référence connus | TERMINÉ |
 
 ### Phase 1 — Cadrage et exigences
 
@@ -94,13 +94,13 @@ Les identifiants ci-dessous servent au suivi. Une tâche ne passe à `TERMINÉ` 
 
 | ID | Tâche | Dépendance | Critère d'acceptation | Statut |
 |---|---|---|---|---|
-| MJC-020 | Créer ou stabiliser le projet Angular | MJC-000 | Projet démarre et compile | À FAIRE |
-| MJC-021 | Activer TypeScript strict et conventions | MJC-020 | Configuration stricte et linting opérationnels | À FAIRE |
-| MJC-022 | Organiser les domaines et couches | MJC-020 | Structure feature-first documentée | À FAIRE |
-| MJC-023 | Définir les modèles et contrats de repositories | MJC-022 | Modèles typés et interfaces sans dépendance UI | À FAIRE |
-| MJC-024 | Ajouter le routage public et privé | MJC-022 | Toutes les routes prévues ont un composant cible | À FAIRE |
-| MJC-025 | Mettre en place gestion d'erreurs et états asynchrones | MJC-023 | Chargement, vide, erreur et succès démontrables | À FAIRE |
-| MJC-026 | Configurer environnements et drapeau MOCK_MODE | MJC-020 | Mode mock explicite, visible et contrôlé | À FAIRE |
+| MJC-020 | Créer ou stabiliser le projet Angular | MJC-000 | Projet démarre et compile | TERMINÉ |
+| MJC-021 | Activer TypeScript strict et conventions | MJC-020 | Configuration stricte et linting opérationnels | TERMINÉ |
+| MJC-022 | Organiser les domaines et couches | MJC-020 | Structure feature-first documentée | TERMINÉ |
+| MJC-023 | Définir les modèles et contrats de repositories | MJC-022 | Modèles typés et interfaces sans dépendance UI | TERMINÉ |
+| MJC-024 | Ajouter le routage public et privé | MJC-022 | Toutes les routes prévues ont un composant cible | TERMINÉ |
+| MJC-025 | Mettre en place gestion d'erreurs et états asynchrones | MJC-023 | Chargement, vide, erreur et succès démontrables | TERMINÉ |
+| MJC-026 | Configurer environnements et drapeau MOCK_MODE | MJC-020 | Mode mock explicite, visible et contrôlé | TERMINÉ |
 
 ### Phase 3 — Direction artistique et Design System
 
