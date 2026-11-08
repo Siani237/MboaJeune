@@ -32,65 +32,74 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       </div>
     </div>
 
-    <!-- ANCIEN HERO AVEC CAPSULES DIAGONALES ET LÉGÈRE IMAGE EN FOND -->
-    <section class="hero cultural-texture-dark">
-      <!-- Image légère en arrière-plan -->
-      <div class="hero-bg-photo" aria-hidden="true">
-        <img src="images/hero-portrait-jeune.jpg" alt="" class="hero-bg-img" />
-        <div class="hero-bg-gradient"></div>
-      </div>
+    <!-- HERO CINÉMATIQUE (STYLE 'BANGUI L'OUBLIÉE' / DOCUMENTAIRE HAUTE FIDÉLITÉ) -->
+    <section class="hero-cinematic">
+      <!-- Arrière-plan photo immersif avec color grading chaleureux et vignette -->
+      <div class="hero-cinematic-bg" aria-hidden="true"></div>
+      <div class="hero-cinematic-overlay" aria-hidden="true"></div>
 
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow on-dark">Institut français du Cameroun · Fonds Équipe France</span>
-          <h1>Un programme pour révéler les <em>talents</em> de demain</h1>
-          <p class="lead">
-            La créativité est une force, et chaque jeune mérite de pouvoir développer son potentiel.
-            Mboa Jeunes Créatifs offre aux jeunes de moins de 35 ans, à Yaoundé et à Douala,
-            un espace d'expression, de formation et de création dans les industries culturelles et créatives.
-          </p>
+      <div class="container hero-cinematic-content">
+        <!-- Logo / Partenaires en haut au centre -->
+        <div class="hero-presenter-badge">
+          <div class="presenter-mark">
+            <span class="flag-dot cm-green"></span>
+            <span class="flag-dot cm-red"></span>
+            <span class="flag-dot cm-yellow"></span>
+          </div>
+          <span class="presenter-names">INSTITUT FRANÇAIS DU CAMEROUN • FONDS ÉQUIPE FRANCE</span>
+          <span class="presenter-tag">PRÉSENTENT</span>
+        </div>
 
-          <div class="actions">
-            <a routerLink="/communaute" class="btn btn-primary btn-lg">
-              <span>Rejoindre la communauté</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <!-- Titre monumental centré en typographie d'affiche -->
+        <h1 class="hero-cinematic-title">
+          <span class="title-line title-mboa">MBOA</span>
+          <span class="title-line title-sub">JEUNES CRÉATIFS</span>
+        </h1>
+
+        <!-- Sous-titre immersif en capitales aérées -->
+        <p class="hero-cinematic-lead">
+          UNE IMMERSION AU CŒUR DE LA CRÉATION, DE LA FORMATION ET DE L'INNOVATION POUR LA JEUNESSE CAMEROUNAISE
+        </p>
+
+        <!-- Bouton CTA principal style 'COMMENCER L'EXPÉRIENCE' vibrant et lumineux -->
+        <div class="hero-cinematic-cta-group">
+          <a routerLink="/talents/candidater" class="btn-cinematic-primary">
+            COMMENCER L'EXPÉRIENCE
+          </a>
+          <div class="hero-cinematic-secondary">
+            <a routerLink="/activites" class="cinematic-sublink">Explorer les 7 filières</a>
+            <span class="sublink-dot">•</span>
+            <a routerLink="/programme" class="cinematic-sublink">Le programme</a>
+            <span class="sublink-dot">•</span>
+            <a routerLink="/opportunites" class="cinematic-sublink">L'agenda</a>
+          </div>
+        </div>
+
+        <!-- Pied de page cinématique intégré au bas du hero -->
+        <div class="hero-cinematic-footer">
+          <div class="foot-col foot-left">
+            <span class="foot-meta-label">REJOINDRE LE MOUVEMENT</span>
+            <span class="foot-meta-val">#MBOAJEUNESCREATIFS</span>
+          </div>
+          <div class="foot-col foot-center">
+            <a href="#valeurs-programme" class="foot-scroll-indicator" aria-label="Défiler pour explorer le programme">
+              <span class="scroll-label">DÉCOUVRIR LE PROGRAMME</span>
+              <svg class="scroll-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
             </a>
-            <a routerLink="/activites" class="btn btn-outline btn-lg on-dark">Explorer les 7 domaines</a>
           </div>
-
-          <p class="hero-links">
-            <a routerLink="/programme">Découvrir le programme</a>
-            <span aria-hidden="true">·</span>
-            <a routerLink="/opportunites">Découvrir les opportunités</a>
-          </p>
-        </div>
-
-        <!-- Capsules diagonales iconiques -->
-        <div class="capsules" aria-hidden="true">
-          <div class="cap c1">
-            <app-domain-glyph domain="musique" [size]="54" />
+          <div class="foot-col foot-right">
+            <span class="foot-meta-label">CAMEROUN • MOINS DE 35 ANS</span>
+            <span class="foot-meta-val">YAOUNDÉ &amp; DOUALA</span>
           </div>
-          <div class="cap c2">
-            <app-domain-glyph domain="mode" [size]="54" />
-          </div>
-          <div class="cap c3">
-            <app-domain-glyph domain="numerique" [size]="54" />
-          </div>
-          <div class="cap c4">
-            <app-domain-glyph domain="arts_visuels" [size]="54" />
-          </div>
-          <span class="dot d1"></span>
-          <span class="dot d2"></span>
-          <span class="dot d3"></span>
         </div>
       </div>
 
-      <!-- Barre de séparation avec motif culturel épuré -->
-      <div class="pattern-band" aria-hidden="true"></div>
+      <!-- Barre de transition avec motif culturel épuré -->
+      <div class="pattern-band hero-bottom-band" aria-hidden="true"></div>
     </section>
 
     <!-- LES 3 VALEURS CLÉS DU PROGRAMME -->
-    <section class="messages">
+    <section class="messages" id="valeurs-programme">
       <div class="container grid3">
         <article class="msg-card">
           <span class="num">01</span>
@@ -248,112 +257,273 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
   `,
   styles: [`
     /* HERO */
-    .hero {
-      color: var(--text-on-dark);
-      overflow: hidden;
+    /* HERO CINÉMATIQUE (STYLE 'BANGUI L'OUBLIÉE' / DOCUMENTAIRE HAUTE FIDÉLITÉ) */
+    .hero-cinematic {
       position: relative;
-    }
-    .hero-bg-photo {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
+      min-height: calc(90vh - 72px);
+      min-height: 640px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
-      pointer-events: none;
-    }
-    .hero-bg-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 30%;
-      opacity: 0.14;
-      filter: saturate(1.2) contrast(1.1);
-    }
-    .hero-bg-gradient {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 70% 40%, rgba(242, 139, 0, 0.08) 0%, transparent 60%),
-                  linear-gradient(180deg, rgba(17, 14, 12, 0.85) 0%, rgba(17, 14, 12, 0.98) 100%);
+      background-color: var(--ink);
+      color: #ffffff;
+      padding: 4.5rem 0 0;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-      padding-block: 5rem 4.5rem;
-      position: relative;
+    .hero-cinematic-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('/images/hero-cinematic.jpg');
+      background-size: cover;
+      background-position: center 35%;
+      background-repeat: no-repeat;
+      transform: scale(1.02);
+      filter: saturate(1.15) contrast(1.08);
+      z-index: 1;
+    }
+
+    .hero-cinematic-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at center, rgba(17, 14, 12, 0.42) 0%, rgba(17, 14, 12, 0.88) 100%),
+        linear-gradient(180deg, rgba(17, 14, 12, 0.88) 0%, rgba(17, 14, 12, 0.28) 45%, rgba(17, 14, 12, 0.98) 100%);
       z-index: 2;
     }
-    .hero h1 {
-      color: var(--text-on-dark);
-      font-size: clamp(2.4rem, 5.4vw, 4.3rem);
-      margin-bottom: 1.25rem;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--orange);
-    }
-    .lead {
-      font-size: 1.15rem;
-      color: var(--text-on-dark-muted);
-      max-width: 35rem;
-      margin-bottom: 1.75rem;
-      line-height: 1.7;
-    }
-    .actions {
+
+    .hero-cinematic-content {
+      position: relative;
+      z-index: 3;
       display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      max-width: 1040px;
+      margin: auto auto 0;
+      padding: 1rem 1.5rem 2rem;
+      width: 100%;
+    }
+
+    /* Badge Présentateur */
+    .hero-presenter-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .35rem;
       margin-bottom: 1.5rem;
     }
-    .hero-links {
-      color: var(--text-on-dark-muted);
-      font-size: .92rem;
-      display: flex;
-      gap: .65rem;
-      flex-wrap: wrap;
+    .presenter-mark {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-bottom: .2rem;
     }
-    .hero-links a {
+    .flag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+    }
+    .flag-dot.cm-green { background: #2a9d47; }
+    .flag-dot.cm-red { background: #d8402e; }
+    .flag-dot.cm-yellow { background: #f28b00; }
+
+    .presenter-names {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.88);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+    }
+    .presenter-tag {
+      font-size: .65rem;
+      font-weight: 800;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--ochre);
+      opacity: .95;
+    }
+
+    /* Titre monumental centré en typographie d'affiche */
+    .hero-cinematic-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 0 1.25rem;
+      font-family: var(--font-poster, 'Bebas Neue', 'Syne', sans-serif);
+      text-transform: uppercase;
+      line-height: 0.9;
+      color: #ffffff;
+      text-shadow:
+        0 4px 30px rgba(0, 0, 0, 0.95),
+        0 2px 8px rgba(0, 0, 0, 0.85);
+      user-select: none;
+    }
+    .title-line.title-mboa {
+      font-size: clamp(3.8rem, 11vw, 7.8rem);
+      letter-spacing: 0.08em;
+      color: #ffffff;
+    }
+    .title-line.title-sub {
+      font-size: clamp(2.3rem, 6.2vw, 4.6rem);
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+    }
+
+    /* Sous-titre immersif en capitales aérées */
+    .hero-cinematic-lead {
+      font-family: var(--font-sans);
+      font-size: clamp(0.82rem, 1.3vw, 1.05rem);
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 720px;
+      line-height: 1.65;
+      margin: 0 auto 2.25rem;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+    }
+
+    /* Bouton CTA principal style 'COMMENCER L'EXPÉRIENCE' vibrant et lumineux */
+    .hero-cinematic-cta-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+    .btn-cinematic-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f28b00 0%, #d97706 100%);
+      color: #ffffff;
+      font-family: var(--font-sans);
+      font-size: .95rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 1.05rem 2.85rem;
+      border-radius: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      box-shadow:
+        0 0 25px rgba(242, 139, 0, 0.45),
+        0 6px 20px rgba(0, 0, 0, 0.45);
+      transition: all .25s ease;
+      text-decoration: none;
+    }
+    .btn-cinematic-primary:hover {
+      background: linear-gradient(135deg, #ff981a 0%, #f28b00 100%);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow:
+        0 0 35px rgba(242, 139, 0, 0.65),
+        0 8px 24px rgba(0, 0, 0, 0.5);
+      border-color: rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+    }
+
+    .hero-cinematic-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: .84rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .cinematic-sublink {
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 600;
+      transition: color .2s ease;
+      text-decoration: none;
+    }
+    .cinematic-sublink:hover {
       color: var(--ochre);
       text-decoration: underline;
     }
-
-    /* CAPSULES DIAGONALES ICONIQUES */
-    .capsules {
-      position: relative;
-      height: 440px;
+    .sublink-dot {
+      color: rgba(255, 255, 255, 0.4);
     }
-    .cap {
-      position: absolute;
-      width: 140px;
-      height: 370px;
-      border-radius: 999px;
-      transform: rotate(28deg);
+
+    /* Pied de page cinématique intégré au bas du hero */
+    .hero-cinematic-footer {
+      width: 100%;
       display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      margin-top: auto;
+    }
+    .foot-col {
+      display: flex;
+      flex-direction: column;
+    }
+    .foot-col.foot-left {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .foot-col.foot-center {
       align-items: center;
-      justify-content: center;
-      color: var(--ink);
-      box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.7);
-      transition: transform .3s ease;
     }
-    .cap:hover {
-      transform: rotate(28deg) translateY(-8px);
+    .foot-col.foot-right {
+      align-items: flex-end;
+      text-align: right;
     }
-    .cap > * {
-      transform: rotate(-28deg);
+    .foot-meta-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: .2rem;
     }
-    .c1 { background: var(--orange); left: 0; top: 18px; }
-    .c2 { background: var(--red); left: 24%; top: 52px; color: #fff; }
-    .c3 { background: var(--green); left: 48%; top: 14px; color: #fff; }
-    .c4 { background: var(--cyan); left: 72%; top: 56px; }
-
-    .dot {
-      position: absolute;
-      border-radius: 50%;
+    .foot-meta-val {
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ochre);
     }
-    .d1 { width: 24px; height: 24px; background: var(--ochre); left: 0; top: 0; box-shadow: 0 0 14px var(--ochre); }
-    .d2 { width: 16px; height: 16px; background: var(--cyan); left: 48%; bottom: 0; }
-    .d3 { width: 20px; height: 20px; background: var(--red); right: 0; bottom: 30px; }
+    .foot-scroll-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      padding: .4rem .9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all .2s ease;
+    }
+    .foot-scroll-indicator:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.18);
+      border-color: rgba(255, 255, 255, 0.35);
+    }
+    .scroll-arrow {
+      animation: bounceDown 1.8s infinite;
+    }
+    @keyframes bounceDown {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(4px); }
+    }
+    .hero-bottom-band {
+      width: 100%;
+      position: relative;
+      z-index: 4;
+    }
 
     /* MESSAGES CLÉS */
     .messages {
@@ -572,6 +742,13 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       padding: 5rem 0;
       color: var(--text-on-dark);
     }
+    .section-head.row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 3.25rem; /* Espacement aéré net garantissant que le bouton Tout l'agenda n'est pas collé aux cartes */
+    }
     .opps h2 {
       color: var(--ochre);
       font-size: 2.2rem;
@@ -697,16 +874,26 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
     }
 
     @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        padding-block: 3.5rem 2.5rem;
+      .hero-cinematic {
+        min-height: 560px;
+        padding-top: 3.5rem;
       }
-      .capsules {
-        height: 300px;
+      .hero-cinematic-footer {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.25rem;
+        text-align: center;
       }
-      .cap {
-        width: 100px;
-        height: 260px;
+      .foot-col.foot-left,
+      .foot-col.foot-right {
+        align-items: center;
+        text-align: center;
+      }
+      .section-head.row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.25rem;
+        margin-bottom: 2.25rem;
       }
       .section-head-slider {
         flex-direction: column;
