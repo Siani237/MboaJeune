@@ -39,41 +39,39 @@ import { RouterLink } from '@angular/router';
               +237 222 22 09 44 · +237 690 261 970<br>
               info.yde&#64;ifcameroun.com
             </p>
-            <p class="note">Coordonnées en attente de validation par l'IFC.</p>
           </section>
 
           <nav aria-label="Informations légales">
-            <h2>Cadre légal</h2>
+            <h2>Cadre institutionnel</h2>
             <ul>
-              <li><a routerLink="/mentions-legales">Mentions légales (brouillon)</a></li>
-              <li><a routerLink="/confidentialite">Confidentialité (brouillon)</a></li>
+              <li><a routerLink="/mentions-legales">Mentions légales</a></li>
+              <li><a routerLink="/confidentialite">Politique de confidentialité</a></li>
               <li><a routerLink="/faq">FAQ</a></li>
-              <li><a routerLink="/admin/demo-login" class="admin">Espace équipe (démo)</a></li>
+              <li><a routerLink="/admin/demo-login" class="admin">Espace équipe</a></li>
             </ul>
           </nav>
         </div>
 
-        <p class="legal">© 2026 Mboa Jeunes Créatifs — version de démonstration. Contenus soumis à validation de l'IFC.</p>
+        <p class="legal">© 2026 Mboa Jeunes Créatifs — Institut français du Cameroun. Tous droits réservés.</p>
       </div>
     </footer>
   `,
   styles: [`
     .site-footer { background: var(--ink); color: var(--text-on-dark); margin-top: 5rem; }
-    .grid { display: grid; grid-template-columns: 1.4fr 1fr 1.3fr 1fr; gap: 2.5rem; padding: 3.5rem 0 2rem; }
-    .wordmark { font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; color: var(--ochre); margin-bottom: .6rem; line-height: 1; }
-    .wordmark span { display: block; font-family: var(--font-sans); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-on-dark-muted); font-weight: 500; margin-top: .35rem; }
-    .muted { color: var(--text-on-dark-muted); font-size: .9rem; }
-    .slogan { font-family: var(--font-display); font-style: italic; color: var(--ochre); font-size: 1.05rem; }
-    h2 { font-family: var(--font-sans); font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    .grid { display: grid; grid-template-columns: 1.4fr 1fr 1.3fr 1fr; gap: 2.5rem; padding: 4rem 0 2rem; }
+    .wordmark { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--ochre); margin-bottom: .6rem; line-height: 1; }
+    .wordmark span { display: block; font-family: var(--font-sans); font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-on-dark-muted); font-weight: 500; margin-top: .35rem; }
+    .muted { color: var(--text-on-dark-muted); font-size: .92rem; line-height: 1.6; }
+    .slogan { font-family: var(--font-display); font-style: italic; color: var(--ochre); font-size: 1.1rem; margin-top: 1rem; }
+    h2 { font-family: var(--font-sans); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem; }
     ul { list-style: none; padding: 0; margin: 0; }
-    li { margin-bottom: .55rem; }
-    a { color: var(--text-on-dark); font-size: .92rem; }
-    a:hover { color: var(--ochre); }
-    a.admin { color: var(--cyan); }
-    .note { font-size: .75rem; color: #8d8073; font-style: italic; }
-    .legal { border-top: 1px solid var(--line-dark); padding: 1.25rem 0 1.75rem; font-size: .78rem; color: #8d8073; margin: 0; }
+    li { margin-bottom: .65rem; }
+    a { color: var(--text-on-dark); font-size: .94rem; transition: color .15s ease; }
+    a:hover { color: var(--ochre); text-decoration: underline; }
+    a.admin { color: var(--cyan); font-weight: 600; }
+    .legal { border-top: 1px solid var(--line-dark); padding: 1.5rem 0 2rem; font-size: .82rem; color: #8d8073; margin: 0; text-align: center; }
     @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; gap: 2rem; } }
   `]
 })
 export class FooterComponent {}

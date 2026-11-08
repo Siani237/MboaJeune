@@ -7,25 +7,25 @@ export const routes: Routes = [
     path: '',
     loadComponent: () =>
       import('./features/home/home.component').then((m) => m.HomeComponent),
-    title: 'Mboa Jeunes Créatifs — Accueil'
+    title: 'Mboa Jeunes Créatifs — Institut français du Cameroun'
   },
   {
     path: 'programme',
     loadComponent: () =>
       import('./features/about/about.component').then((m) => m.AboutComponent),
-    title: 'À propos — Mboa Jeunes Créatifs'
+    title: 'Le programme — Mboa Jeunes Créatifs'
   },
   {
     path: 'activites',
     loadComponent: () =>
       import('./features/activities/activities.component').then((m) => m.ActivitiesComponent),
-    title: 'Activités & Domaines — Mboa Jeunes Créatifs'
+    title: 'Les 7 Domaines — Mboa Jeunes Créatifs'
   },
   {
     path: 'opportunites',
     loadComponent: () =>
       import('./features/opportunities/opportunities.component').then((m) => m.OpportunitiesComponent),
-    title: 'Opportunités & Agenda — Mboa Jeunes Créatifs'
+    title: 'Agenda & Opportunités — Mboa Jeunes Créatifs'
   },
   {
     path: 'actualites',
@@ -49,10 +49,10 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () =>
       import('./features/contact/contact.component').then((m) => m.ContactComponent),
-    title: 'Contact — Mboa Jeunes Créatifs'
+    title: 'Contact & Orientation — Mboa Jeunes Créatifs'
   },
 
-  // Pool de talents (public démo)
+  // Pool de talents (public)
   {
     path: 'communaute',
     loadComponent: () =>
@@ -60,12 +60,12 @@ export const routes: Routes = [
     title: 'Rejoindre le Pool de talents — Mboa Jeunes Créatifs'
   },
 
-  // Espace d'administration (démo équipe)
+  // Espace d'administration / Équipe
   {
     path: 'admin/demo-login',
     loadComponent: () =>
       import('./features/admin/auth-demo/admin-auth-demo.component').then((m) => m.AdminAuthDemoComponent),
-    title: 'Connexion Démo — Administration Mboa'
+    title: 'Espace Équipe — Mboa Jeunes Créatifs'
   },
   {
     path: 'admin',
@@ -86,7 +86,7 @@ export const routes: Routes = [
     canActivate: [adminDemoGuard],
     loadComponent: () =>
       import('./features/admin/talents/admin-talent-detail.component').then((m) => m.AdminTalentDetailComponent),
-    title: 'Fiche Profil — Administration Mboa'
+    title: 'Fiche Candidat — Administration Mboa'
   },
   {
     path: 'admin/appels',

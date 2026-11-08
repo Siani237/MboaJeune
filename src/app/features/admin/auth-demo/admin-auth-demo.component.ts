@@ -10,22 +10,17 @@ import { AuthDemoService } from '../../../core/services/auth-demo.service';
   template: `
     <div class="container page-content">
       <div class="auth-box card">
-        <div class="auth-badge">ESPACE ÉQUIPE PROJET</div>
-        <h1>Connexion de démonstration</h1>
+        <div class="auth-badge">INSTITUT FRANÇAIS DU CAMEROUN</div>
+        <h1>Espace Équipe &amp; Pilotage</h1>
         <p class="auth-desc">
-          Cet espace est destiné à l'équipe de pilotage pour simuler la consultation du Pool de talents, 
-          le tri des candidatures et le suivi des indicateurs.
+          Portail interne réservé à la coordination du programme Mboa Jeunes Créatifs
+          pour la consultation du Pool de talents, la gestion des candidatures et le suivi des ateliers.
         </p>
-
-        <div class="demo-warning" role="alert">
-          <strong>Avertissement sécurité :</strong>
-          Il s'agit d'une simulation d'accès frontend. Aucune authentification serveur robuste 
-          n'est implémentée à ce stade. Ne pas utiliser ce mode pour une exploitation réelle.
-        </div>
 
         <div class="auth-actions">
           <button type="button" class="btn btn-primary btn-lg" (click)="onLogin()">
-            Entrer dans l'espace d'administration démo →
+            <span>Accéder au tableau de bord</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
       </div>
@@ -33,47 +28,43 @@ import { AuthDemoService } from '../../../core/services/auth-demo.service';
   `,
   styles: [`
     .page-content {
-      padding: 4rem 1.5rem;
+      padding: 6rem 1.5rem;
       display: flex;
       justify-content: center;
     }
     .auth-box {
-      max-width: 520px;
+      max-width: 540px;
       width: 100%;
-      padding: 3rem 2.5rem;
+      padding: 3.5rem 3rem;
       text-align: center;
+      background: var(--ink);
+      color: var(--text-on-dark);
+      border: 1px solid var(--line-dark);
+      border-radius: var(--radius-leaf);
+      box-shadow: 12px 12px 0 var(--orange);
     }
     .auth-badge {
       display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--color-primary-dark);
-      background-color: var(--color-primary-light);
-      padding: 0.25rem 0.65rem;
-      border-radius: var(--radius-sm);
-      margin-bottom: 1.25rem;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .auth-box h1 {
-      font-size: 1.85rem;
-      margin-bottom: 0.75rem;
-    }
-    .auth-desc {
-      color: var(--color-text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
+      color: var(--ink);
+      background: var(--orange);
+      padding: .35rem .9rem;
+      border-radius: 999px;
       margin-bottom: 1.5rem;
     }
-    .demo-warning {
-      background-color: var(--color-demo-banner-bg);
-      border: 1px solid #fde68a;
-      color: var(--color-demo-banner);
-      font-size: 0.85rem;
-      padding: 1rem;
-      border-radius: var(--radius-md);
-      margin-bottom: 2rem;
-      text-align: left;
+    .auth-box h1 {
+      font-size: 2.1rem;
+      color: var(--ochre);
+      margin-bottom: 1rem;
+    }
+    .auth-desc {
+      color: var(--text-on-dark-muted);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
     }
     .auth-actions {
       display: flex;
@@ -82,12 +73,6 @@ import { AuthDemoService } from '../../../core/services/auth-demo.service';
     .auth-actions .btn {
       width: 100%;
     }
-  
-    .auth-box { background: var(--ink); color: var(--text-on-dark); border: none; border-radius: var(--radius-lg) 6px var(--radius-lg) 6px; box-shadow: 10px 10px 0 var(--orange); }
-    .auth-box h1 { color: var(--ochre); }
-    .auth-desc { color: var(--text-on-dark-muted); }
-    .auth-badge { background: var(--orange); color: var(--ink); }
-    .demo-warning { background: var(--ochre); color: var(--ink); border: none; }
   `]
 })
 export class AdminAuthDemoComponent {
@@ -95,7 +80,7 @@ export class AdminAuthDemoComponent {
   private readonly router = inject(Router);
 
   onLogin(): void {
-    this.auth.loginDemo();
+    this.auth.loginDemo('Coordination IFC');
     this.router.navigate(['/admin']);
   }
 }

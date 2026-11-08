@@ -1,15 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { DemoBannerComponent } from './core/layout/demo-banner.component';
 import { HeaderComponent } from './core/layout/header.component';
 import { FooterComponent } from './core/layout/footer.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DemoBannerComponent, HeaderComponent, FooterComponent],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-    <app-demo-banner />
     <app-header />
     <main id="main-content" class="main-content">
       <router-outlet />
@@ -18,7 +16,7 @@ import { FooterComponent } from './core/layout/footer.component';
   `,
   styles: [`
     .main-content {
-      min-height: calc(100vh - 350px);
+      min-height: calc(100vh - 400px);
     }
   `]
 })

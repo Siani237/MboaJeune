@@ -21,11 +21,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render the demo banner and main container', () => {
+  it('should render the main header, router-outlet container and footer', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('app-demo-banner')).toBeTruthy();
     expect(compiled.querySelector('app-header')).toBeTruthy();
     expect(compiled.querySelector('main#main-content')).toBeTruthy();
     expect(compiled.querySelector('app-footer')).toBeTruthy();

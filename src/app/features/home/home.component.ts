@@ -9,104 +9,273 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
   standalone: true,
   imports: [RouterLink, DomainGlyphComponent],
   template: `
-    <!-- HERO -->
+    <!-- RUBAN DÉFILANT ANIMÉ -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-move">
+        <span class="ticker-item"><span class="ticker-star">★</span>MODE &amp; STYLISME</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>MUSIQUE &amp; DJING</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>RADIO &amp; PODCAST</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>NUMÉRIQUE &amp; 3D FABLAB</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>ARTS VISUELS</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>BMX &amp; CULTURES URBAINES</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>ÉVÉNEMENTIEL CULTUREL</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>YAOUNDÉ &amp; DOUALA</span>
+        <!-- Duplication pour boucle infinie sans saut -->
+        <span class="ticker-item"><span class="ticker-star">★</span>MODE &amp; STYLISME</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>MUSIQUE &amp; DJING</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>RADIO &amp; PODCAST</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>NUMÉRIQUE &amp; 3D FABLAB</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>ARTS VISUELS</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>BMX &amp; CULTURES URBAINES</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>ÉVÉNEMENTIEL CULTUREL</span>
+        <span class="ticker-item"><span class="ticker-star">★</span>YAOUNDÉ &amp; DOUALA</span>
+      </div>
+    </div>
+
+    <!-- GRAND HERO IMMERSIF AVEC PHOTO ET BADGES FLOTTANTS -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow on-dark">Programme de l'Institut français du Cameroun</span>
+          <span class="eyebrow on-dark">Institut français du Cameroun · Fonds Équipe France</span>
           <h1>Un programme pour révéler les <em>talents</em> de demain</h1>
           <p class="lead">
             La créativité est une force, et chaque jeune mérite de pouvoir développer son potentiel.
-            Mboa Jeunes Créatifs offre aux jeunes de moins de 35 ans, à Yaoundé et à Douala,
-            un espace d'expression, de formation et de création.
+            Mboa Jeunes Créatifs offre aux jeunes de moins de 35 ans, à <strong>Yaoundé</strong> et à <strong>Douala</strong>,
+            un espace d'apprentissage, d'expression artistique et d'insertion dans les industries culturelles et créatives.
           </p>
+
           <div class="actions">
-            <a routerLink="/communaute" class="btn btn-primary btn-lg">Rejoindre la communauté</a>
-            <a routerLink="/activites" class="btn btn-outline btn-lg on-dark">Explorer les domaines</a>
+            <a routerLink="/communaute" class="btn btn-primary btn-lg">
+              <span>Rejoindre la communauté</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a routerLink="/activites" class="btn btn-outline btn-lg on-dark">Explorer les 7 domaines</a>
           </div>
-          <p class="hero-links">
-            <a routerLink="/programme">Découvrir le programme</a>
-            <span aria-hidden="true">·</span>
-            <a routerLink="/opportunites">Découvrir les opportunités</a>
-          </p>
+
+          <div class="trust-strip">
+            <div class="trust-item">
+              <strong>100% Gratuit</strong>
+              <span>Accès libre aux ateliers</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+              <strong>Moins de 35 ans</strong>
+              <span>Étudiants &amp; passionnés</span>
+            </div>
+            <div class="trust-divider" aria-hidden="true"></div>
+            <div class="trust-item">
+              <strong>2 Villes</strong>
+              <span>Yaoundé &amp; Douala</span>
+            </div>
+          </div>
         </div>
 
-        <div class="capsules" aria-hidden="true">
-          <div class="cap c1"><app-domain-glyph domain="musique" [size]="54" /></div>
-          <div class="cap c2"><app-domain-glyph domain="mode" [size]="54" /></div>
-          <div class="cap c3"><app-domain-glyph domain="numerique" [size]="54" /></div>
-          <div class="cap c4"><app-domain-glyph domain="arts_visuels" [size]="54" /></div>
-          <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span>
+        <div class="hero-visual">
+          <div class="photo-frame">
+            <img
+              src="images/hero-portrait-jeune.jpg"
+              alt="Jeune créateur du programme Mboa Jeunes Créatifs"
+              class="hero-img"
+            />
+            <div class="frame-overlay" aria-hidden="true"></div>
+
+            <!-- Badges flottants dynamiques -->
+            <div class="float-card card-badge-1 float-anim">
+              <span class="float-icon">🎨</span>
+              <div>
+                <strong>7 Filières Créatives</strong>
+                <small>Formation &amp; Ateliers</small>
+              </div>
+            </div>
+
+            <div class="float-card card-badge-2">
+              <span class="float-dot"></span>
+              <div>
+                <strong>Inscriptions ouvertes</strong>
+                <small>Pool de talents 2026</small>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="pattern-band-light" aria-hidden="true"></div>
     </section>
 
-    <!-- MESSAGES CLÉS -->
+    <!-- LES 3 VALEURS CLÉS DU PROGRAMME -->
     <section class="messages">
       <div class="container grid3">
-        <article>
-          <span class="num">01</span>
+        <article class="msg-card">
+          <div class="msg-header">
+            <span class="num">01</span>
+            <span class="msg-tag">Accessible à tous</span>
+          </div>
           <h2>Pour les jeunes et les étudiants</h2>
-          <p>Un programme destiné aux jeunes, notamment aux étudiants intéressés par les industries culturelles et créatives.</p>
+          <p>
+            Que vous soyez étudiant, autodidacte, débutant ou déjà engagé dans une démarche artistique,
+            le programme vous accueille pour développer votre créativité sans barrière d'entrée.
+          </p>
         </article>
-        <article>
-          <span class="num">02</span>
-          <h2>Se former, essayer, rencontrer</h2>
-          <p>Formations, ateliers, rencontres et opportunités pour développer ses compétences et ses projets.</p>
+
+        <article class="msg-card">
+          <div class="msg-header">
+            <span class="num">02</span>
+            <span class="msg-tag">Pratique &amp; Métiers</span>
+          </div>
+          <h2>Se former, expérimenter, rencontrer</h2>
+          <p>
+            Des ateliers concrets animés par des professionnels reconnus : DJing, stylisme, régie événementielle,
+            fabrication numérique FabLab et production de podcasts.
+          </p>
         </article>
-        <article>
-          <span class="num">03</span>
-          <h2>Une information accessible</h2>
-          <p>Découvrir le programme et y participer simplement : tout est réuni ici.</p>
+
+        <article class="msg-card">
+          <div class="msg-header">
+            <span class="num">03</span>
+            <span class="msg-tag">Réseau &amp; Avenir</span>
+          </div>
+          <h2>Propulser vos projets créatifs</h2>
+          <p>
+            Rejoignez un réseau solidaire d'artistes et d'entrepreneurs pour échanger des compétences,
+            participer à des résidences et accéder à des opportunités professionnelles réelles.
+          </p>
         </article>
       </div>
     </section>
 
-    <!-- DOMAINES -->
+    <!-- SECTION DES 7 DOMAINES AVEC GRANDES PHOTOS ÉDITORIALES -->
     <section class="domains">
       <div class="container">
         <header class="section-head">
-          <span class="eyebrow">Industries culturelles et créatives</span>
+          <span class="eyebrow">Industries culturelles &amp; créatives</span>
           <h2>Sept domaines, mille façons de créer</h2>
-          <p>La créativité prend plusieurs formes. Choisissez l'univers qui vous appelle.</p>
+          <p>Choisissez la filière qui fait battre votre imagination et découvrez nos ateliers spécialisés.</p>
         </header>
 
         <div class="domain-grid">
           @for (d of domains(); track d.key) {
-            <a class="domain" [routerLink]="['/activites']" [fragment]="d.key" [style.--c]="color(d.key)">
-              <span class="icon"><app-domain-glyph [domain]="d.key" [size]="38" /></span>
-              <h3>{{ d.name }}</h3>
-              <p>{{ d.tagline }}</p>
-              <span class="more">Découvrir →</span>
+            <a class="domain-card-rich" [routerLink]="['/activites']" [fragment]="d.key" [style.--c]="color(d.key)">
+              <div class="domain-bg-wrap">
+                @if (d.image) {
+                  <img [src]="d.image" [alt]="d.name" class="domain-bg-img" loading="lazy" />
+                }
+                <div class="domain-overlay"></div>
+              </div>
+
+              <div class="domain-content">
+                <div class="domain-top">
+                  <span class="domain-icon-box">
+                    <app-domain-glyph [domain]="d.key" [size]="34" />
+                  </span>
+                  <span class="domain-pill">{{ d.tagline }}</span>
+                </div>
+
+                <div class="domain-bottom">
+                  <h3>{{ d.name }}</h3>
+                  <p>{{ d.description }}</p>
+                  <span class="domain-arrow">
+                    <span>Explorer la filière</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  </span>
+                </div>
+              </div>
             </a>
           }
         </div>
-        <p class="note">Les activités effectivement proposées varient selon les villes, les périodes et la programmation.</p>
       </div>
     </section>
 
-    <!-- OPPORTUNITÉS -->
+    <!-- GALERIE IMMERSIVE « L'ÉNERGIE DU PROGRAMME » -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-intro">
+          <div>
+            <span class="eyebrow on-dark">Immersion &amp; Communauté</span>
+            <h2>Au cœur de la création camerounaise</h2>
+          </div>
+          <p class="gallery-desc">
+            À Yaoundé comme à Douala, les ateliers Mboa Jeunes Créatifs rassemblent des énergies singulières.
+            Découvrez nos espaces de répétition, studios d'enregistrement et ateliers de fabrication.
+          </p>
+        </div>
+
+        <div class="gallery-mosaic">
+          <div class="mosaic-col col-1">
+            <div class="mosaic-card">
+              <img src="images/musique-guitare.jpg" alt="Artiste en répétition musicale" loading="lazy" />
+              <div class="mosaic-caption">
+                <strong>Musique &amp; Pratiques artistiques</strong>
+                <span>Sessions live &amp; MAO</span>
+              </div>
+            </div>
+            <div class="mosaic-card">
+              <img src="images/atelier-creation.jpg" alt="Atelier de création pratique" loading="lazy" />
+              <div class="mosaic-caption">
+                <strong>Ateliers de création</strong>
+                <span>Expérimentation collective</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mosaic-col col-2">
+            <div class="mosaic-card main-mosaic">
+              <img src="images/communaute-etudiants.jpg" alt="Jeunes créateurs et étudiants ensemble" loading="lazy" />
+              <div class="mosaic-caption">
+                <strong>La Communauté Mboa</strong>
+                <span>Partage, convivialité &amp; projets</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mosaic-col col-3">
+            <div class="mosaic-card">
+              <img src="images/radio-podcast-studio.jpg" alt="Enregistrement en studio radio podcast" loading="lazy" />
+              <div class="mosaic-caption">
+                <strong>Radio &amp; Médias</strong>
+                <span>Prise de son &amp; Podcasts</span>
+              </div>
+            </div>
+            <div class="mosaic-card">
+              <img src="images/numerique-developpeur.jpg" alt="Créateur numérique sur laptop" loading="lazy" />
+              <div class="mosaic-caption">
+                <strong>Numérique &amp; 3D</strong>
+                <span>Design graphique &amp; code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION OPPORTUNITÉS & AGENDA -->
     <section class="opps">
       <div class="container">
         <header class="section-head row">
           <div>
-            <span class="eyebrow on-dark">Agenda</span>
-            <h2>Opportunités à suivre</h2>
+            <span class="eyebrow on-dark">Agenda officiel</span>
+            <h2>Prochaines opportunités &amp; ateliers</h2>
           </div>
-          <a routerLink="/opportunites" class="btn btn-outline on-dark">Tout l'agenda →</a>
+          <a routerLink="/opportunites" class="btn btn-outline on-dark">Consulter tout l'agenda →</a>
         </header>
 
         <div class="opp-grid">
           @for (o of opportunities(); track o.id) {
-            <article class="opp" [style.--c]="color(o.domain)">
-              <span class="stripe"></span>
-              <p class="meta">{{ o.domainLabel }} · {{ o.city }}</p>
-              <h3>{{ o.title }}</h3>
-              <p>{{ o.summary }}</p>
-              <div class="foot">
-                @if (o.startDate) { <span class="date">{{ o.startDate }} → {{ o.endDate }}</span> }
-                <span class="demo">Exemple fictif</span>
+            <article class="opp-card-photo" [style.--c]="color(o.domain)">
+              @if (o.image) {
+                <div class="opp-thumb-wrap">
+                  <img [src]="o.image" [alt]="o.title" class="opp-thumb" loading="lazy" />
+                  <span class="opp-city-badge">{{ o.city }}</span>
+                </div>
+              }
+              <div class="opp-body">
+                <span class="opp-domain-label">{{ o.domainLabel }}</span>
+                <h3>{{ o.title }}</h3>
+                <p>{{ o.summary }}</p>
+                <div class="opp-foot">
+                  @if (o.startDate) {
+                    <span class="opp-dates">Du {{ o.startDate }} au {{ o.endDate }}</span>
+                  }
+                  <a routerLink="/communaute" class="btn btn-primary btn-sm">Participer</a>
+                </div>
               </div>
             </article>
           }
@@ -114,91 +283,559 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       </div>
     </section>
 
-    <!-- CTA POOL -->
-    <section class="cta">
-      <div class="container cta-box">
-        <div>
-          <span class="eyebrow">Pool de talents</span>
-          <h2>Faites partie de la communauté</h2>
-          <p>Laissez votre profil pour être identifié lors des prochains ateliers et appels. L'inscription au Pool ne vaut pas candidature à une activité.</p>
+    <!-- BANNIÈRE D'APPEL MAJEUR AU POOL DE TALENTS -->
+    <section class="cta-banner-final">
+      <div class="container">
+        <div class="cta-inner">
+          <div class="cta-text">
+            <span class="eyebrow">Vivier de talents</span>
+            <h2>Faites partie de la nouvelle vague créative</h2>
+            <p>
+              Vous avez moins de 35 ans, êtes basé au Cameroun et passionné par les industries culturelles ?
+              Enregistrez votre profil dès aujourd'hui dans le Pool de talents pour être contacté
+              lors des prochains ateliers et opportunités.
+            </p>
+          </div>
+          <div class="cta-button-wrap">
+            <a routerLink="/communaute" class="btn btn-secondary btn-lg">
+              <span>Rejoindre la communauté</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
         </div>
-        <a routerLink="/communaute" class="btn btn-secondary btn-lg">Découvrir le formulaire de démo →</a>
       </div>
     </section>
   `,
   styles: [`
-    .hero { background: var(--ink); color: var(--text-on-dark); overflow: hidden; }
-    .hero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 2rem; align-items: center; padding-block: 4.5rem 4rem; }
-    .hero h1 { color: var(--text-on-dark); font-size: clamp(2.4rem, 5.4vw, 4.3rem); }
-    .hero h1 em { font-style: italic; color: var(--orange); }
-    .lead { font-size: 1.15rem; color: var(--text-on-dark-muted); max-width: 34rem; margin-bottom: 1.75rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-bottom: 1.4rem; }
-    .hero-links { color: var(--text-on-dark-muted); font-size: .92rem; display: flex; gap: .6rem; flex-wrap: wrap; }
-    .hero-links a { color: var(--ochre); text-decoration: underline; }
+    /* HERO */
+    .hero {
+      background: var(--ink);
+      color: var(--text-on-dark);
+      position: relative;
+      overflow: hidden;
+      padding-top: 2rem;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      padding-block: 4.5rem 5rem;
+    }
+    .hero h1 {
+      color: var(--text-on-dark);
+      font-size: clamp(2.5rem, 5.5vw, 4.4rem);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--orange);
+    }
+    .lead {
+      font-size: 1.18rem;
+      color: var(--text-on-dark-muted);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      max-width: 36rem;
+    }
+    .lead strong {
+      color: var(--text-on-dark);
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.75rem;
+    }
+    .trust-strip {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--line-dark);
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .trust-item strong {
+      color: var(--ochre);
+      font-size: 1.05rem;
+      font-family: var(--font-display);
+    }
+    .trust-item span {
+      font-size: .8rem;
+      color: var(--text-on-dark-muted);
+    }
+    .trust-divider {
+      width: 1px;
+      height: 32px;
+      background: var(--line-dark);
+    }
 
-    .capsules { position: relative; height: 430px; }
-    .cap { position: absolute; width: 140px; height: 360px; border-radius: 999px; transform: rotate(28deg);
-           display: flex; align-items: center; justify-content: center; color: var(--ink); box-shadow: 0 20px 40px -20px #000; }
-    .cap > * { transform: rotate(-28deg); }
-    .c1 { background: var(--orange); left: 0; top: 18px; }
-    .c2 { background: var(--red); left: 24%; top: 50px; color: #fff; }
-    .c3 { background: var(--green); left: 48%; top: 14px; color: #fff; }
-    .c4 { background: var(--cyan); left: 72%; top: 56px; }
-    .dot { position: absolute; border-radius: 50%; }
-    .d1 { width: 22px; height: 22px; background: var(--ochre); left: 0; top: 0; }
-    .d2 { width: 14px; height: 14px; background: var(--cyan); left: 48%; bottom: 0; }
-    .d3 { width: 18px; height: 18px; background: var(--red); right: 0; bottom: 30px; }
+    /* Photo Frame Hero */
+    .hero-visual {
+      position: relative;
+    }
+    .photo-frame {
+      position: relative;
+      border-radius: var(--radius-leaf);
+      overflow: visible;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      object-position: center 65%;
+      border-radius: var(--radius-leaf);
+      display: block;
+      border: 3px solid var(--line-dark);
+    }
+    .frame-overlay {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-leaf);
+      background: linear-gradient(180deg, transparent 60%, rgba(17,14,12,0.7) 100%);
+      pointer-events: none;
+    }
 
-    .messages { padding: 4.5rem 0 2rem; }
-    .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem; }
-    .messages article { border-top: 4px solid var(--ink); padding-top: 1.2rem; }
-    .messages article:nth-child(1) { border-color: var(--red); }
-    .messages article:nth-child(2) { border-color: var(--orange); }
-    .messages article:nth-child(3) { border-color: var(--cyan); }
-    .num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; color: var(--ink); opacity: .18; line-height: 1; display: block; }
-    .messages h2 { font-size: 1.45rem; margin: .3rem 0 .6rem; }
-    .messages p { color: var(--text-muted); margin: 0; }
+    /* Badges flottants */
+    .float-card {
+      position: absolute;
+      background: rgba(27, 22, 19, 0.94);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--line-dark);
+      padding: .85rem 1.25rem;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      gap: .85rem;
+      color: var(--text-on-dark);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.4);
+      z-index: 2;
+    }
+    .card-badge-1 {
+      bottom: -20px;
+      left: -20px;
+    }
+    .card-badge-2 {
+      top: 30px;
+      right: -20px;
+    }
+    .float-icon {
+      font-size: 1.5rem;
+    }
+    .float-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 10px var(--green);
+      animation: pulse-soft 2s infinite;
+    }
+    .float-card strong {
+      display: block;
+      font-size: .92rem;
+      color: var(--ochre);
+    }
+    .float-card small {
+      font-size: .75rem;
+      color: var(--text-on-dark-muted);
+    }
 
-    .domains { padding: 4rem 0 2rem; }
-    .section-head { max-width: 40rem; margin-bottom: 2.25rem; }
-    .section-head.row { max-width: none; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem; }
-    .section-head p { color: var(--text-muted); font-size: 1.05rem; margin: 0; }
-    .domain-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1.25rem; }
-    .domain { --c: var(--orange); display: flex; flex-direction: column; background: var(--white); color: var(--text);
-              border: 1px solid var(--line); border-radius: var(--radius-leaf); padding: 1.5rem; text-decoration: none;
-              position: relative; overflow: hidden; transition: transform .15s, box-shadow .15s; }
-    .domain::before { content: ''; position: absolute; right: -34px; top: -34px; width: 110px; height: 110px; border-radius: 50%; background: var(--c); opacity: .16; }
-    .domain:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); text-decoration: none; }
-    .icon { width: 64px; height: 64px; border-radius: 22px 6px 22px 6px; background: var(--c); color: var(--ink);
-            display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; position: relative; }
-    .domain h3 { font-size: 1.15rem; margin-bottom: .35rem; }
-    .domain p { color: var(--text-muted); font-size: .9rem; flex: 1; }
-    .more { font-weight: 700; font-size: .85rem; color: var(--ink); }
-    .note { margin-top: 1.5rem; font-size: .85rem; color: var(--text-muted); font-style: italic; }
+    /* MESSAGES */
+    .messages {
+      padding: 5rem 0 3rem;
+    }
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.25rem;
+    }
+    .msg-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-leaf);
+      padding: 2.25rem;
+      box-shadow: var(--shadow-sm);
+      transition: all .25s ease;
+    }
+    .msg-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+    }
+    .msg-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.25rem;
+    }
+    .num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+    }
+    .msg-tag {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--paper-2);
+      padding: .25rem .65rem;
+      border-radius: 999px;
+    }
+    .msg-card h2 {
+      font-size: 1.45rem;
+      margin-bottom: .85rem;
+    }
+    .msg-card p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      margin: 0;
+    }
 
-    .opps { background: var(--ink); color: var(--text-on-dark); padding: 4.5rem 0; margin-top: 4rem; }
-    .opps h2 { color: var(--ochre); margin: 0; }
-    .opp-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.5rem; }
-    .opp { --c: var(--orange); background: var(--ink-2); border: 1px solid var(--line-dark); border-radius: var(--radius-leaf); padding: 1.6rem; position: relative; display: flex; flex-direction: column; }
-    .stripe { position: absolute; left: 0; top: 24px; bottom: 24px; width: 5px; border-radius: 5px; background: var(--c); }
-    .opp .meta { font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--c); font-weight: 700; margin-bottom: .5rem; }
-    .opp h3 { color: var(--text-on-dark); font-size: 1.3rem; }
-    .opp p { color: var(--text-on-dark-muted); font-size: .92rem; flex: 1; }
-    .foot { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; border-top: 1px solid var(--line-dark); padding-top: .9rem; font-size: .8rem; }
-    .date { color: var(--text-on-dark); }
-    .demo { color: var(--ink); background: var(--ochre); border-radius: 999px; padding: .1rem .55rem; font-weight: 700; font-size: .7rem; }
+    /* DOMAINES RICHES AVEC IMAGES */
+    .domains {
+      padding: 4.5rem 0 3rem;
+    }
+    .section-head {
+      margin-bottom: 3rem;
+      max-width: 44rem;
+    }
+    .section-head.row {
+      max-width: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    .section-head p {
+      color: var(--text-muted);
+      font-size: 1.15rem;
+    }
+    .domain-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.75rem;
+    }
+    .domain-card-rich {
+      --c: var(--orange);
+      position: relative;
+      height: 380px;
+      border-radius: var(--radius-leaf);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      transition: all .35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .domain-card-rich:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+    .domain-bg-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .domain-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .domain-card-rich:hover .domain-bg-img {
+      transform: scale(1.08);
+    }
+    .domain-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(17,14,12,0.4) 0%, rgba(17,14,12,0.92) 80%);
+    }
+    .domain-content {
+      position: relative;
+      z-index: 2;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      color: var(--text-on-dark);
+    }
+    .domain-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .75rem;
+    }
+    .domain-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px 4px 16px 4px;
+      background: var(--c);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    .domain-pill {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-on-dark);
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: .35rem .75rem;
+      border-radius: 999px;
+    }
+    .domain-bottom h3 {
+      color: #ffffff;
+      font-size: 1.4rem;
+      margin-bottom: .4rem;
+    }
+    .domain-bottom p {
+      color: var(--text-on-dark-muted);
+      font-size: .9rem;
+      line-height: 1.45;
+      margin-bottom: 1rem;
+    }
+    .domain-arrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--ochre);
+      transition: gap .2s ease;
+    }
+    .domain-card-rich:hover .domain-arrow {
+      gap: .8rem;
+    }
 
-    .cta { padding: 4rem 0 0; }
-    .cta-box { background: var(--ochre); border-radius: var(--radius-lg) 6px var(--radius-lg) 6px; padding: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
-    .cta-box > div { max-width: 38rem; }
-    .cta h2 { margin-bottom: .6rem; }
-    .cta p { margin: 0; color: var(--ink-3); }
-    .cta .eyebrow { color: var(--ink); }
+    /* MOSAÏQUE GALERIE COMMUTAUTÉ */
+    .gallery-section {
+      background: var(--ink);
+      color: var(--text-on-dark);
+      padding: 6rem 0;
+      margin-top: 3rem;
+    }
+    .gallery-intro {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+    .gallery-intro h2 {
+      color: var(--ochre);
+      margin: 0;
+    }
+    .gallery-desc {
+      color: var(--text-on-dark-muted);
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    .gallery-mosaic {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr 1fr;
+      gap: 1.5rem;
+    }
+    .mosaic-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .mosaic-card {
+      position: relative;
+      border-radius: var(--radius-leaf);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      height: 240px;
+    }
+    .mosaic-card.main-mosaic {
+      height: 100%;
+      min-height: 500px;
+      border-radius: var(--radius-leaf-alt);
+    }
+    .mosaic-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s ease;
+    }
+    .mosaic-card:hover img {
+      transform: scale(1.06);
+    }
+    .mosaic-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1.25rem 1rem;
+      background: linear-gradient(0deg, rgba(17,14,12,0.92) 0%, transparent 100%);
+      color: var(--text-on-dark);
+    }
+    .mosaic-caption strong {
+      display: block;
+      font-size: 1rem;
+      color: var(--ochre);
+    }
+    .mosaic-caption span {
+      font-size: .8rem;
+      color: var(--text-on-dark-muted);
+    }
 
-    @media (max-width: 900px) {
-      .hero-grid { grid-template-columns: 1fr; padding-block: 3rem 2.5rem; }
-      .capsules { height: 300px; }
-      .cap { width: 100px; height: 260px; }
+    /* AGENDA / OPPORTUNITÉS */
+    .opps {
+      padding: 5.5rem 0;
+    }
+    .opps h2 {
+      font-size: 2.2rem;
+    }
+    .opp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .opp-card-photo {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-leaf);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all .25s ease;
+    }
+    .opp-card-photo:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .opp-thumb-wrap {
+      position: relative;
+      height: 190px;
+      overflow: hidden;
+    }
+    .opp-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+    .opp-card-photo:hover .opp-thumb {
+      transform: scale(1.06);
+    }
+    .opp-city-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(17,14,12,0.85);
+      backdrop-filter: blur(6px);
+      color: var(--ochre);
+      font-size: .75rem;
+      font-weight: 700;
+      padding: .25rem .7rem;
+      border-radius: 999px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .opp-body {
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .opp-domain-label {
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--orange-deep);
+      margin-bottom: .4rem;
+    }
+    .opp-body h3 {
+      font-size: 1.35rem;
+      margin-bottom: .6rem;
+    }
+    .opp-body p {
+      color: var(--text-muted);
+      font-size: .94rem;
+      line-height: 1.5;
+      flex: 1;
+      margin-bottom: 1.25rem;
+    }
+    .opp-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      flex-wrap: wrap;
+      gap: .75rem;
+    }
+    .opp-dates {
+      font-size: .84rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* BANNIÈRE FINALE */
+    .cta-banner-final {
+      padding: 2rem 0 5rem;
+    }
+    .cta-inner {
+      background: var(--ochre);
+      border-radius: var(--radius-lg);
+      padding: 3.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      align-items: center;
+      gap: 3rem;
+      box-shadow: var(--shadow-md);
+    }
+    .cta-text h2 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+    .cta-text p {
+      color: var(--ink-3);
+      font-size: 1.1rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+    .cta-text .eyebrow {
+      color: var(--ink);
+    }
+    .cta-button-wrap {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        padding-block: 3.5rem;
+      }
+      .card-badge-1 { bottom: -10px; left: 10px; }
+      .card-badge-2 { top: 20px; right: 10px; }
+      .gallery-intro { grid-template-columns: 1fr; gap: 1rem; }
+      .gallery-mosaic { grid-template-columns: 1fr; }
+      .mosaic-card.main-mosaic { min-height: 350px; }
+      .cta-inner { grid-template-columns: 1fr; padding: 2.5rem 1.75rem; }
+      .cta-button-wrap { justify-content: flex-start; }
     }
   `]
 })
@@ -207,10 +844,15 @@ export class HomeComponent implements OnInit {
   readonly domains = signal<DomainInfo[]>([]);
   readonly opportunities = signal<Opportunity[]>([]);
 
-  color(key: string): string { return DOMAIN_COLORS[key] ?? '#f08a00'; }
+  color(key: string): string {
+    return DOMAIN_COLORS[key] ?? '#f28b00';
+  }
 
   async ngOnInit(): Promise<void> {
-    const [d, o] = await Promise.all([this.repo.getDomains(), this.repo.getOpportunities()]);
+    const [d, o] = await Promise.all([
+      this.repo.getDomains(),
+      this.repo.getOpportunities()
+    ]);
     this.domains.set(d);
     this.opportunities.set(o);
   }

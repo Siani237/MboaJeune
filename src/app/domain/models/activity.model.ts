@@ -13,6 +13,7 @@ export interface DomainInfo {
   tagline: string;
   description: string;
   icon: string;
+  image?: string;
   highlights: string[];
 }
 
@@ -34,6 +35,7 @@ export interface Opportunity {
   registrationUrl?: string;
   capacity?: number;
   eligibilityNotes?: string;
+  image?: string;
   isMockData: boolean;
   status: OpportunityStatus;
   updatedAt: string;

@@ -7,6 +7,7 @@ export interface NewsArticle {
   publishedAt: string;
   category: string;
   author: string;
+  image?: string;
   isMockData: boolean;
 }
 

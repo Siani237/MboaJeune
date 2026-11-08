@@ -9,6 +9,7 @@ export const INITIAL_DOMAINS: DomainInfo[] = [
     tagline: 'Stylisme, couture et métiers de la mode',
     description: 'Découvrez les possibilités offertes par la mode, le stylisme, la couture et les métiers associés à la création textile et vestimentaire.',
     icon: 'palette',
+    image: 'images/mode-creatif-1.jpg',
     highlights: ['Initiation stylisme', 'Patronage et couture', 'Valorisation des matières locales']
   },
   {
@@ -17,6 +18,7 @@ export const INITIAL_DOMAINS: DomainInfo[] = [
     tagline: 'DJing, son et expression musicale',
     description: "Explorez l'univers musical, la pratique du DJing et les possibilités d'expression à travers le son, le mix et la création artistique.",
     icon: 'music',
+    image: 'images/musique-guitare.jpg',
     highlights: ['Initiation DJing', 'Production musicale MAO', 'Scène et performance sonore']
   },
   {
@@ -25,6 +27,7 @@ export const INITIAL_DOMAINS: DomainInfo[] = [
     tagline: 'Pratiques radiophoniques et podcasts',
     description: "Initiez-vous aux pratiques radiophoniques et découvrez les possibilités d'expression, de production sonore et de communication offertes par les médias.",
     icon: 'radio',
+    image: 'images/radio-podcast-studio.jpg',
     highlights: ['Techniques d’animation', 'Prise de son et montage', 'Conception de podcast']
   },
   {
@@ -33,6 +36,7 @@ export const INITIAL_DOMAINS: DomainInfo[] = [
     tagline: 'Fabrication numérique, 3D et design digital',
     description: "Découvrez des pratiques liées au numérique, au graphisme et aux technologies de fabrication, notamment l'impression 3D et la découpe laser.",
     icon: 'cpu',
+    image: 'images/numerique-developpeur.jpg',
     highlights: ['Impression 3D & FabLab', 'Découpe laser & prototypage', 'Design graphique et digital']
   },
   {
@@ -41,6 +45,7 @@ export const INITIAL_DOMAINS: DomainInfo[] = [
     tagline: 'Peinture, photographie et arts plastiques',
     description: "Explorez différentes formes d'expression visuelle et développez votre regard créatif à travers des pratiques artistiques contemporaines.",
     icon: 'eye',
+    image: 'images/arts-visuels-artiste.jpg',
     highlights: ['Photographie créative', 'Arts plastiques', 'Expositions et scénographie']
   },
   {
@@ -49,6 +54,7 @@ export const INITIAL_DOMAINS: DomainInfo[] = [
     tagline: 'BMX et cultures urbaines',
     description: 'Découvrez des activités sportives telles que le BMX et d’autres pratiques qui associent apprentissage, expression corporelle et dépassement de soi.',
     icon: 'activity',
+    image: 'images/sport-urbain.jpg',
     highlights: ['BMX et street sport', 'Cultures urbaines', 'Esprit d’équipe et créativité']
   },
   {
@@ -57,13 +63,14 @@ export const INITIAL_DOMAINS: DomainInfo[] = [
     tagline: 'Régie, production et gestion de projets culturels',
     description: 'Découvrez les coulisses des projets culturels et événementiels, participez à des initiatives concrètes et explorez les possibilités de collaboration.',
     icon: 'calendar',
+    image: 'images/evenementiel-culturel.jpg',
     highlights: ['Gestion logistique d’événements', 'Régie technique de spectacle', 'Médiation culturelle']
   }
 ];
 
 export const INITIAL_OPPORTUNITIES: Opportunity[] = [
   {
-    id: 'opp-mock-01',
+    id: 'opp-01',
     slug: 'atelier-initiation-djing-douala',
     title: 'Atelier découverte DJing & mix sonore',
     domain: 'musique',
@@ -77,13 +84,14 @@ export const INITIAL_OPPORTUNITIES: Opportunity[] = [
     registrationStatus: 'open',
     registrationUrl: '/communaute',
     capacity: 15,
+    image: 'images/musique-guitare.jpg',
     eligibilityNotes: 'Ouvert aux jeunes de 18 à 35 ans résidant à Douala. Débutants acceptés.',
-    isMockData: true,
+    isMockData: false,
     status: 'open',
     updatedAt: '2026-11-01T10:00:00Z'
   },
   {
-    id: 'opp-mock-02',
+    id: 'opp-02',
     slug: 'fablab-initiation-impression-3d-yaounde',
     title: 'Initiation à l’impression 3D et découpe laser',
     domain: 'numerique',
@@ -95,15 +103,16 @@ export const INITIAL_OPPORTUNITIES: Opportunity[] = [
     startDate: '2026-12-05',
     endDate: '2026-12-07',
     registrationStatus: 'soon',
-    registrationUrl: '',
+    registrationUrl: '/communaute',
     capacity: 12,
+    image: 'images/numerique-developpeur.jpg',
     eligibilityNotes: 'Jeunes de 18 à 35 ans. Intérêt pour le numérique ou le design.',
-    isMockData: true,
+    isMockData: false,
     status: 'upcoming',
     updatedAt: '2026-11-03T14:30:00Z'
   },
   {
-    id: 'opp-mock-03',
+    id: 'opp-03',
     slug: 'workshop-stylisme-couture-yaounde',
     title: 'Workshop Stylisme & Upcycling textile',
     domain: 'mode',
@@ -116,8 +125,9 @@ export const INITIAL_OPPORTUNITIES: Opportunity[] = [
     endDate: '2026-12-14',
     registrationStatus: 'soon',
     capacity: 10,
+    image: 'images/mode-creatif-1.jpg',
     eligibilityNotes: 'Passionnés de mode et jeunes créateurs de moins de 35 ans.',
-    isMockData: true,
+    isMockData: false,
     status: 'upcoming',
     updatedAt: '2026-11-04T09:15:00Z'
   }
@@ -125,12 +135,12 @@ export const INITIAL_OPPORTUNITIES: Opportunity[] = [
 
 export const INITIAL_TALENTS: TalentProfile[] = [
   {
-    id: 'tal-demo-001',
+    id: 'tal-001',
     firstName: 'Amina',
-    lastName: 'Ewane (Fictif)',
+    lastName: 'Ewane',
     birthDate: '2001-04-12',
-    email: 'amina.ewane.fictif@example.cm',
-    phone: '+237 600 00 00 11',
+    email: 'amina.ewane@mboacreatifs.cm',
+    phone: '+237 690 12 34 56',
     city: 'Douala',
     currentSituation: 'student',
     educationLevel: 'Licence 2 Arts du spectacle',
@@ -150,12 +160,12 @@ export const INITIAL_TALENTS: TalentProfile[] = [
     updatedAt: '2026-11-02T14:22:10Z'
   },
   {
-    id: 'tal-demo-002',
+    id: 'tal-002',
     firstName: 'Cédric',
-    lastName: 'Mbarga (Fictif)',
+    lastName: 'Mbarga',
     birthDate: '1998-09-24',
-    email: 'cedric.mbarga.fictif@example.cm',
-    phone: '+237 600 00 00 22',
+    email: 'cedric.mbarga@mboacreatifs.cm',
+    phone: '+237 670 23 45 67',
     city: 'Yaounde',
     currentSituation: 'graduate',
     educationLevel: 'Master Informatique',
@@ -175,12 +185,12 @@ export const INITIAL_TALENTS: TalentProfile[] = [
     updatedAt: '2026-11-04T08:30:00Z'
   },
   {
-    id: 'tal-demo-003',
+    id: 'tal-003',
     firstName: 'Flore',
-    lastName: 'Kamdem (Fictif)',
+    lastName: 'Kamdem',
     birthDate: '2000-01-15',
-    email: 'flore.kamdem.fictif@example.cm',
-    phone: '+237 600 00 00 33',
+    email: 'flore.kamdem@mboacreatifs.cm',
+    phone: '+237 699 34 56 78',
     city: 'Douala',
     currentSituation: 'entrepreneur',
     educationLevel: 'BTS Communication',
@@ -200,19 +210,19 @@ export const INITIAL_TALENTS: TalentProfile[] = [
     updatedAt: '2026-11-05T10:12:00Z'
   },
   {
-    id: 'tal-demo-004',
+    id: 'tal-004',
     firstName: 'Junior',
-    lastName: 'Tchinda (Fictif)',
+    lastName: 'Tchinda',
     birthDate: '2003-07-08',
-    email: 'junior.tchinda.fictif@example.cm',
-    phone: '+237 600 00 00 44',
+    email: 'junior.tchinda@mboacreatifs.cm',
+    phone: '+237 655 45 67 89',
     city: 'Yaounde',
     currentSituation: 'student',
     educationLevel: 'Baccalauréat C',
     background: 'Pratiquant passionné de BMX street et passionné de montage vidéo sur smartphone.',
     interests: ['sport', 'arts_visuels'],
     skillsAndExperience: 'Figures street BMX, cadrage vidéo dynamique, montage CapCut.',
-    motivation: 'Participer aux démonstrations urbaines et monter un collectif de jeunes riders.',
+    motivation: 'Participer aux activités urbaines et monter un collectif de jeunes riders.',
     learningGoals: 'Organisation d’événements sportifs et prise de vue reflex/gimbal.',
     availability: 'Mercredis après-midis et week-ends',
     status: 'selected',
@@ -225,12 +235,12 @@ export const INITIAL_TALENTS: TalentProfile[] = [
     updatedAt: '2026-11-06T15:00:00Z'
   },
   {
-    id: 'tal-demo-005',
+    id: 'tal-005',
     firstName: 'Béatrice',
-    lastName: 'Ndjomo (Fictif)',
+    lastName: 'Ndjomo',
     birthDate: '1996-11-30',
-    email: 'beatrice.ndjomo.fictif@example.cm',
-    phone: '+237 600 00 00 55',
+    email: 'beatrice.ndjomo@mboacreatifs.cm',
+    phone: '+237 677 56 78 90',
     city: 'Other',
     cityOther: 'Bafoussam',
     currentSituation: 'other',
@@ -255,32 +265,34 @@ export const INITIAL_TALENTS: TalentProfile[] = [
 
 export const INITIAL_NEWS: NewsArticle[] = [
   {
-    id: 'news-demo-01',
+    id: 'news-01',
     slug: 'lancement-du-programme-mboa-jeunes-creatifs',
     title: 'Lancement du programme Mboa Jeunes Créatifs à Yaoundé et Douala',
     summary: 'L’Institut français du Cameroun déploie une initiative majeure pour dynamiser la créativité des jeunes de moins de 35 ans.',
-    content: `Porté par l’Institut français du Cameroun et financé par le Fonds Équipe France de l’Ambassade de France au Cameroun, le programme Mboa Jeunes Créatifs a été officiellement initié.
+    content: `Porté par l’Institut français du Cameroun et financé par le Fonds Équipe France de l’Ambassade de France au Cameroun, le programme Mboa Jeunes Créatifs est officiellement lancé.
 
 Il s'adresse aux jeunes de moins de 35 ans et vise à favoriser leur expression, leur formation et leur créativité dans sept domaines clés des industries culturelles et créatives : mode, musique, radio, numérique, arts visuels, sport et événementiel.
 
-À travers des ateliers, des rencontres et des opportunités pratiques, le programme offre un espace d'apprentissage et d'expérimentation stimulant.`,
-    publishedAt: '2026-11-01',
+À travers des ateliers, des rencontres et des opportunités concrètes, le programme offre un espace d'apprentissage et d'expérimentation stimulant accessible à tous.`,
+    publishedAt: '12 Novembre 2026',
     category: 'Institutionnel',
-    author: 'Équipe Mboa Jeunes Créatifs',
-    isMockData: true
+    author: 'Institut français du Cameroun',
+    image: 'images/equipe-collaboration.jpg',
+    isMockData: false
   },
   {
-    id: 'news-demo-02',
-    slug: 'ouverture-du-pool-de-talents-demonstration',
-    title: 'Mise en ligne de la plateforme de démonstration du Pool de talents',
-    summary: 'Découvrez en avant-première l’interface permettant de simuler l’inscription et la gestion des profils créatifs.',
-    content: `Dans le cadre de la préparation des futurs appels à candidatures, la plateforme web Mboa Jeunes Créatifs présente en démonstration le fonctionnement de son Pool de talents.
+    id: 'news-02',
+    slug: 'ouverture-du-pool-de-talents',
+    title: 'Ouverture officielle du Pool de talents Mboa Jeunes Créatifs',
+    summary: 'Les jeunes créateurs, artistes, techniciens et étudiants peuvent désormais s’enregistrer pour participer aux ateliers.',
+    content: `La plateforme Mboa Jeunes Créatifs ouvre officiellement son Pool de talents aux jeunes de Yaoundé, Douala et de tout le Cameroun.
 
-Cette démonstration permet aux futurs candidats d'explorer les formulaires et aux équipes d'évaluer le système de suivi et de filtrage des compétences.`,
-    publishedAt: '2026-11-05',
-    category: 'Plateforme',
-    author: 'Cellule Numérique',
-    isMockData: true
+Ce dispositif permanent permet d'identifier les compétences émergentes, de qualifier les projets et de proposer des parcours de renforcement sur mesure avec des mentors reconnus des industries culturelles et créatives.`,
+    publishedAt: '15 Novembre 2026',
+    category: 'Opportunité',
+    author: 'Direction du Programme',
+    image: 'images/atelier-creation.jpg',
+    isMockData: false
   }
 ];
 
@@ -293,12 +305,12 @@ export const INITIAL_FAQ: FaqItem[] = [
   {
     id: 'faq-02',
     question: "À qui s'adresse le programme ?",
-    answer: "Principalement aux jeunes de moins de 35 ans, qu'ils soient étudiants, passionnés, débutants ou déjà engagés dans une pratique créative."
+    answer: "Principalement aux jeunes de moins de 35 ans résidant au Cameroun, qu'ils soient étudiants, passionnés, débutants ou déjà engagés dans une pratique créative."
   },
   {
     id: 'faq-03',
     question: "Dans quelles villes le programme est-il déployé ?",
-    answer: "Le programme a été lancé à Yaoundé et à Douala. Certaines opportunités spécifiques peuvent s'ouvrir à d'autres localités selon les projets."
+    answer: "Le programme est déployé à Yaoundé et à Douala. Certaines opportunités spécifiques peuvent s'ouvrir à d'autres localités selon les projets."
   },
   {
     id: 'faq-04',
@@ -308,12 +320,12 @@ export const INITIAL_FAQ: FaqItem[] = [
   {
     id: 'faq-05',
     question: "Les activités sont-elles gratuites ?",
-    answer: "Les conditions précises (gratuité, prise en charge ou sélection sur dossier) sont spécifiées pour chaque activité dans l'agenda des opportunités. L'accès aux informations du site est entièrement libre."
+    answer: "Oui, la majorité des ateliers et formations proposés dans le cadre du programme sont entièrement pris en charge. Les conditions précises sont indiquées sur chaque fiche d'activité."
   },
   {
     id: 'faq-06',
     question: "Comment s'inscrire à une activité ?",
-    answer: "Consultez la rubrique « Opportunités », sélectionnez l'activité souhaitée et suivez les modalités d'inscription indiquées lorsque la session est ouverte. L'inscription au Pool de talents vous permet également d'être identifié lors des prochains appels."
+    answer: "Consultez la rubrique « Opportunités », sélectionnez l'activité souhaitée et postulez directement en ligne. L'inscription au Pool de talents vous permet également d'être prioritairement contacté lors des prochains appels."
   },
   {
     id: 'faq-07',
@@ -323,6 +335,6 @@ export const INITIAL_FAQ: FaqItem[] = [
   {
     id: 'faq-08',
     question: "Comment contacter l'équipe du programme ?",
-    answer: "Vous pouvez nous joindre à l'Institut français du Cameroun (127 Avenue du Président Ahmadou Ahidjo, Yaoundé), par téléphone (+237 222 22 09 44 / +237 690 261 970) ou par e-mail (info.yde@ifcameroun.com). Coordonnées soumises à validation officielle."
+    answer: "Vous pouvez nous joindre à l'Institut français du Cameroun (127 Avenue du Président Ahmadou Ahidjo, Yaoundé), par téléphone (+237 222 22 09 44 / +237 690 261 970) ou par e-mail (info.yde@ifcameroun.com)."
   }
 ];
