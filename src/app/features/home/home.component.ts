@@ -9,29 +9,6 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
   standalone: true,
   imports: [RouterLink, DomainGlyphComponent],
   template: `
-    <!-- RUBAN DÉFILANT AVEC MOTIFS SUBTILS -->
-    <div class="ticker-wrap" aria-hidden="true">
-      <div class="ticker-move">
-        <span class="ticker-item"><span class="ticker-star">★</span>MODE &amp; STYLISME</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>MUSIQUE &amp; DJING</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>RADIO &amp; PODCAST</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>NUMÉRIQUE &amp; FABLAB 3D</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>ARTS VISUELS</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>BMX &amp; CULTURES URBAINES</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>ÉVÉNEMENTIEL CULTUREL</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>YAOUNDÉ &amp; DOUALA</span>
-        <!-- Duplication pour boucle infinie fluide -->
-        <span class="ticker-item"><span class="ticker-star">★</span>MODE &amp; STYLISME</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>MUSIQUE &amp; DJING</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>RADIO &amp; PODCAST</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>NUMÉRIQUE &amp; FABLAB 3D</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>ARTS VISUELS</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>BMX &amp; CULTURES URBAINES</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>ÉVÉNEMENTIEL CULTUREL</span>
-        <span class="ticker-item"><span class="ticker-star">★</span>YAOUNDÉ &amp; DOUALA</span>
-      </div>
-    </div>
-
     <!-- HERO CINÉMATIQUE (STYLE 'BANGUI L'OUBLIÉE' / DOCUMENTAIRE HAUTE FIDÉLITÉ) -->
     <section class="hero-cinematic">
       <!-- Arrière-plan photo immersif avec color grading chaleureux et vignette -->
@@ -63,7 +40,7 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
 
         <!-- Bouton CTA principal style 'COMMENCER L'EXPÉRIENCE' vibrant et lumineux -->
         <div class="hero-cinematic-cta-group">
-          <a routerLink="/talents/candidater" class="btn-cinematic-primary">
+          <a routerLink="/communaute" class="btn-cinematic-primary">
             COMMENCER L'EXPÉRIENCE
           </a>
           <div class="hero-cinematic-secondary">
@@ -353,7 +330,7 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       align-items: center;
       justify-content: center;
       margin: 0 0 1.25rem;
-      font-family: var(--font-poster, 'Bebas Neue', 'Syne', sans-serif);
+      font-family: var(--font-poster, Impact, sans-serif);
       text-transform: uppercase;
       line-height: 0.9;
       color: #ffffff;

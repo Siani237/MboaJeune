@@ -59,6 +59,21 @@ export const routes: Routes = [
       import('./features/talent-pool/talent-pool-form.component').then((m) => m.TalentPoolFormComponent),
     title: 'Rejoindre le Pool de talents — Mboa Jeunes Créatifs'
   },
+  {
+    path: 'talents/candidater',
+    redirectTo: 'communaute',
+    pathMatch: 'full'
+  },
+  {
+    path: 'candidater',
+    redirectTo: 'communaute',
+    pathMatch: 'full'
+  },
+  {
+    path: 'experience',
+    redirectTo: 'communaute',
+    pathMatch: 'full'
+  },
 
   // Espace d'administration / Équipe
   {

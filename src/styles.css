@@ -1,13 +1,12 @@
 @import '@fontsource-variable/fraunces';
 @import '@fontsource-variable/outfit';
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@700;800;900&display=swap');
 
 /*
  * Design System — Mboa Jeunes Créatifs
  * Direction : Haute création contemporaine africaine (Éditorial, Culturel, Audacieux)
  */
 :root {
-  --font-poster: 'Bebas Neue', 'Syne', sans-serif;
+  --font-poster: Impact, 'Arial Black', 'Fraunces Variable', sans-serif;
   --font-display: 'Fraunces Variable', Georgia, serif;
   --font-sans: 'Outfit Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
