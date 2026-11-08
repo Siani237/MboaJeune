@@ -131,20 +131,32 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .eyebrow:hover::before { width: 40px; }
 .on-dark .eyebrow, .eyebrow.on-dark { color: var(--ochre); }
 
-/* Bandes de motifs géométriques */
+/* Barres et bandes de motifs culturels épurés et soft */
 .pattern-band {
-  height: 20px;
-  background:
-    linear-gradient(135deg, transparent 40%, var(--red) 40% 60%, transparent 60%) 0 0 / 20px 20px,
-    linear-gradient(45deg, transparent 40%, var(--cyan) 40% 60%, transparent 60%) 10px 0 / 20px 20px,
-    var(--ink);
+  height: 14px;
+  background-color: var(--ink);
+  background-image: url("data:image/svg+xml,%3Csvg width='28' height='14' viewBox='0 0 28 14' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 7 L7 0 L14 7 L21 0 L28 7 L21 14 L14 7 L7 14 Z' fill='none' stroke='%23e8b04a' stroke-width='0.85' stroke-opacity='0.25'/%3E%3Ccircle cx='14' cy='7' r='1.2' fill='%23f28b00' fill-opacity='0.3'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  border-top: 1px solid rgba(232, 176, 74, 0.12);
+  border-bottom: 1px solid rgba(232, 176, 74, 0.12);
 }
+
 .pattern-band-light {
-  height: 16px;
-  background:
-    radial-gradient(circle at 8px 8px, var(--orange) 3.5px, transparent 4px) 0 0 / 32px 16px,
-    radial-gradient(circle at 24px 8px, var(--green) 3.5px, transparent 4px) 0 0 / 32px 16px,
-    var(--paper-2);
+  height: 12px;
+  background-color: var(--paper-2);
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='12' viewBox='0 0 24 12' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L6 0 L12 6 L18 0 L24 6 L18 12 L12 6 L6 12 Z' fill='none' stroke='%23b85c00' stroke-width='0.75' stroke-opacity='0.2'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+/* Texture culturelle douce en filigrane pour sections sombres */
+.cultural-texture-dark {
+  background-color: var(--ink);
+  background-image:
+    radial-gradient(ellipse at 80% 20%, rgba(242, 139, 0, 0.06) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 0 L44 22 L22 44 L0 22 Z' fill='none' stroke='%23e8b04a' stroke-width='0.75' stroke-opacity='0.05'/%3E%3Ccircle cx='22' cy='22' r='2' fill='%23f28b00' fill-opacity='0.07'/%3E%3C/svg%3E");
+  background-repeat: repeat;
 }
 
 /* Ticker ruban infini */

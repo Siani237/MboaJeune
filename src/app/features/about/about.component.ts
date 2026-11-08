@@ -51,7 +51,7 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
       <!-- Deux piliers -->
       <section class="duo">
         <article class="red card-leaf">
-          <div class="duo-icon">🎯</div>
+          <span class="duo-badge">Pilier 01</span>
           <h3>Notre ambition</h3>
           <p>
             Contribuer à l'épanouissement des jeunes en leur donnant accès à des espaces d'apprentissage moderne,
@@ -60,7 +60,7 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
         </article>
 
         <article class="cyan card-leaf-alt">
-          <div class="duo-icon">🤝</div>
+          <span class="duo-badge">Pilier 02</span>
           <h3>Notre approche</h3>
           <p>
             Encourager la découverte, valoriser les savoirs et matières locales, favoriser le mentorat entre générations
@@ -147,7 +147,19 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
     }
     .duo article.red { background: var(--red); }
     .duo article.cyan { background: var(--ink); border-left: 10px solid var(--cyan); }
-    .duo-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+    .duo-badge {
+      display: inline-block;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(0, 0, 0, 0.2);
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: 1.25rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
     .duo h3 { font-size: 1.85rem; color: #fff; margin-bottom: .8rem; }
     .duo p { margin: 0; color: inherit; opacity: .95; font-size: 1.08rem; line-height: 1.65; }
 
