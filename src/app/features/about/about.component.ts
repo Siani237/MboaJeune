@@ -1,138 +1,79 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { PageHeroComponent } from '../../shared/components/page-hero.component';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink, PageHeroComponent],
   template: `
-    <div class="container page-content">
-      <header class="page-header">
-        <span class="section-tag">Présentation institutionnelle</span>
-        <h1>À propos de Mboa Jeunes Créatifs</h1>
-        <p class="lead">
-          Un programme pour favoriser l'expression, la formation et la créativité des jeunes dans les industries culturelles et créatives.
-        </p>
-      </header>
+    <app-page-hero eyebrow="Le programme" heading="Apprendre, créer, faire grandir ses idées"
+      lead="Mboa Jeunes Créatifs favorise l'expression, la formation et la créativité des jeunes dans les industries culturelles et créatives." />
 
-      <section class="content-block">
-        <h2>Origine et partenariats</h2>
-        <p>
-          <strong>Mboa Jeunes Créatifs</strong> est un programme de l'<strong>Institut français du Cameroun (IFC)</strong>, 
-          financé par le <strong>Fonds Équipe France de l'Ambassade de France au Cameroun</strong>. 
-          Lancé à <strong>Yaoundé</strong> et à <strong>Douala</strong>, il s'adresse prioritairement aux jeunes de moins de 35 ans.
-        </p>
-        <p>
-          Le programme propose des activités diversifiées dans plusieurs filières artistiques et techniques : 
-          le sport, la mode, la radio, la musique, le numérique, les arts visuels et l'événementiel.
-        </p>
-      </section>
-
-      <section class="content-block">
-        <div class="values-grid">
-          <div class="value-card">
-            <h3>Notre ambition</h3>
-            <p>
-              Contribuer à l'épanouissement des jeunes en leur donnant accès à des espaces d'apprentissage, 
-              d'expérimentation et de création contemporaine.
-            </p>
-          </div>
-          <div class="value-card">
-            <h3>Notre approche</h3>
-            <p>
-              Encourager la découverte, valoriser les initiatives locales camerounaises, favoriser le partage d'expériences 
-              et rapprocher les jeunes des professionnels des industries créatives.
-            </p>
-          </div>
+    <div class="container body">
+      <section class="split">
+        <div>
+          <h2>Un programme de l'Institut français du Cameroun</h2>
+        </div>
+        <div class="text">
+          <p>
+            Mboa Jeunes Créatifs est un programme de l'<strong>Institut français du Cameroun</strong>,
+            financé par le <strong>Fonds Équipe France de l'Ambassade de France au Cameroun</strong>.
+            Lancé à <strong>Yaoundé</strong> et à <strong>Douala</strong>, il s'adresse aux jeunes de moins de 35 ans.
+          </p>
+          <p>
+            Il propose différentes activités dans plusieurs domaines : le sport, la mode, la radio,
+            la musique, le numérique, les arts visuels et l'événementiel.
+          </p>
+          <p>
+            À travers des ateliers, des formations, des rencontres et des initiatives créatives, les jeunes
+            découvrent de nouvelles disciplines, développent leurs compétences et explorent des possibilités
+            d'engagement et d'insertion professionnelle.
+          </p>
+          <p class="draft">Texte institutionnel soumis à validation de l'IFC.</p>
         </div>
       </section>
 
-      <section class="content-block">
+      <section class="duo">
+        <article class="red">
+          <h3>Notre ambition</h3>
+          <p>Contribuer à l'épanouissement des jeunes en leur donnant accès à des espaces d'apprentissage, d'expérimentation et de création.</p>
+        </article>
+        <article class="cyan">
+          <h3>Notre approche</h3>
+          <p>Encourager la découverte, valoriser les initiatives locales, favoriser le partage d'expériences et rapprocher les jeunes des professionnels et des opportunités.</p>
+        </article>
+      </section>
+
+      <section class="who">
         <h2>À qui s'adresse le programme ?</h2>
         <p>
-          Principalement aux jeunes de moins de 35 ans résidant au Cameroun (particulièrement à Yaoundé et Douala), 
-          qu'ils soient étudiants, passionnés, débutants ou déjà engagés dans une pratique créative.
+          Principalement aux jeunes de moins de 35 ans, qu'ils soient étudiants, passionnés, débutants ou déjà
+          engagés dans une activité créative. <strong>Il n'est pas nécessaire d'être un professionnel</strong>
+          pour s'intéresser à un domaine, apprendre une nouvelle compétence ou découvrir son potentiel.
         </p>
-        <div class="note-box">
-          <p>
-            <strong>Il n'est pas nécessaire d'être un professionnel :</strong> 
-            Le programme a été conçu pour donner la chance à chacun de tester une idée, d'apprendre une compétence technique 
-            ou de développer son réseau dans un cadre bienveillant et stimulant.
-          </p>
+        <div class="actions">
+          <a routerLink="/activites" class="btn btn-primary">Explorer les domaines</a>
+          <a routerLink="/communaute" class="btn btn-outline">Rejoindre la communauté</a>
         </div>
       </section>
-
-      <div class="page-cta">
-        <a routerLink="/activites" class="btn btn-primary">Explorer les 7 filières</a>
-        <a routerLink="/communaute" class="btn btn-secondary">Rejoindre le Pool de talents</a>
-      </div>
     </div>
   `,
   styles: [`
-    .page-content {
-      padding: 3rem 1.5rem 4rem;
-      max-width: 860px;
-    }
-    .page-header {
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: 2rem;
-    }
-    .section-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .lead {
-      font-size: 1.2rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      margin-top: 0.75rem;
-    }
-    .content-block {
-      margin-bottom: 2.5rem;
-    }
-    .content-block h2 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
-      color: var(--color-text-main);
-    }
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-    .value-card {
-      background-color: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-left: 4px solid var(--color-primary);
-      padding: 1.5rem;
-      border-radius: var(--radius-md);
-    }
-    .value-card h3 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .note-box {
-      background-color: var(--color-surface-subtle);
-      border: 1px solid var(--color-border);
-      padding: 1.25rem 1.5rem;
-      border-radius: var(--radius-md);
-      margin-top: 1rem;
-    }
-    .note-box p {
-      margin: 0;
-    }
-    .page-cta {
-      display: flex;
-      gap: 1rem;
-      margin-top: 3rem;
-      flex-wrap: wrap;
-    }
+    .body { padding-block: 4rem 1rem; }
+    .split { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3rem; margin-bottom: 4rem; }
+    .text p { font-size: 1.08rem; color: var(--text-muted); }
+    .draft { font-size: .82rem; font-style: italic; color: var(--color-text-light); }
+    .duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+    .duo article { padding: 2.2rem; color: #fff; border-radius: var(--radius-leaf); }
+    .duo article.red { background: var(--red); }
+    .duo article.cyan { background: var(--ink); border-left: 8px solid var(--cyan); }
+    .duo h3 { font-size: 1.7rem; color: inherit; }
+    .duo p { margin: 0; color: inherit; opacity: .95; font-size: 1.05rem; }
+    .who { background: var(--paper-2); border-radius: var(--radius-lg); padding: 2.5rem; }
+    .who p { font-size: 1.08rem; color: var(--text-muted); max-width: 48rem; }
+    .actions { display: flex; gap: .8rem; flex-wrap: wrap; }
+    @media (max-width: 800px) { .split { grid-template-columns: 1fr; gap: 1rem; } }
   `]
 })
 export class AboutComponent {}

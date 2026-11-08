@@ -1,281 +1,117 @@
-import { Component, OnInit, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ACTIVITY_REPOSITORY } from '../../domain/repositories/activity.repository';
-import { DomainInfo, DomainKey, Opportunity } from '../../domain/models/activity.model';
+import { DomainInfo, Opportunity } from '../../domain/models/activity.model';
 import { EmptyStateComponent } from '../../shared/components/empty-state.component';
+import { PageHeroComponent } from '../../shared/components/page-hero.component';
+import { DOMAIN_COLORS } from '../../shared/components/domain-glyph.component';
 
 @Component({
   selector: 'app-opportunities',
   standalone: true,
-  imports: [CommonModule, RouterLink, EmptyStateComponent],
+  imports: [RouterLink, EmptyStateComponent, PageHeroComponent],
   template: `
-    <div class="container page-content">
-      <header class="page-header">
-        <span class="section-tag">Agenda & Inscriptions</span>
-        <h1>Opportunités et Ateliers</h1>
-        <p class="lead">
-          Retrouvez les ateliers, formations et sessions de création programmés dans le cadre du projet.
-          Consultez les informations utiles : dates, lieux, critères et modalités d'inscription.
-        </p>
-      </header>
+    <app-page-hero eyebrow="Agenda" heading="Opportunités et ateliers"
+      lead="Description, dates, lieux, publics concernés et modalités d'inscription lorsqu'elles sont confirmées." />
 
-      <!-- Filtre par domaine -->
-      <div class="filter-bar">
-        <label for="domain-select" class="filter-label">Filtrer par filière :</label>
-        <select
-          id="domain-select"
-          class="form-control filter-select"
-          [value]="selectedDomain()"
-          (change)="onDomainChange($event)"
-        >
-          <option value="">Toutes les filières</option>
-          <option *ngFor="let d of domains()" [value]="d.key">{{ d.name }}</option>
+    <div class="container body">
+      <div class="filter">
+        <label for="domain-select">Filtrer par domaine</label>
+        <select id="domain-select" class="form-control" [value]="selected()" (change)="onChange($event)">
+          <option value="">Tous les domaines</option>
+          @for (d of domains(); track d.key) { <option [value]="d.key">{{ d.name }}</option> }
         </select>
+        <span class="count">{{ filtered().length }} résultat(s)</span>
       </div>
 
-      <!-- Liste des opportunités -->
-      <div class="opps-list" *ngIf="filteredOpportunities().length > 0; else noOpps">
-        <article *ngFor="let opp of filteredOpportunities()" class="opp-item card">
-          <div class="opp-main">
-            <div class="opp-meta">
-              <span class="opp-domain-tag">{{ opp.domainLabel }}</span>
-              <span class="opp-city">{{ opp.city }}</span>
-              <span class="badge" [ngClass]="getRegistrationBadgeClass(opp.registrationStatus)">
-                {{ getRegistrationLabel(opp.registrationStatus) }}
-              </span>
-            </div>
+      <p class="mock-note">Les fiches ci-dessous sont des <strong>exemples fictifs de démonstration</strong>, pas une programmation officielle.</p>
 
-            <h2 class="opp-title">{{ opp.title }}</h2>
-            <p class="opp-summary">{{ opp.summary }}</p>
-            <p class="opp-desc">{{ opp.description }}</p>
-
-            <div class="opp-details-grid">
-              <div class="detail-item" *ngIf="opp.venue">
-                <strong>Lieu :</strong> {{ opp.venue }}
+      @if (filtered().length > 0) {
+        <div class="list">
+          @for (o of filtered(); track o.id) {
+            <article class="opp" [style.--c]="color(o.domain)">
+              <div class="date-block">
+                <span class="m">{{ month(o.startDate) }}</span>
+                <span class="d">{{ day(o.startDate) }}</span>
               </div>
-              <div class="detail-item" *ngIf="opp.startDate">
-                <strong>Dates :</strong> Du {{ opp.startDate }} au {{ opp.endDate }}
+              <div class="main">
+                <p class="meta">{{ o.domainLabel }} · {{ o.city }}</p>
+                <h2>{{ o.title }}</h2>
+                <p>{{ o.description }}</p>
+                <dl>
+                  @if (o.venue) { <div><dt>Lieu</dt><dd>{{ o.venue }}</dd></div> }
+                  @if (o.startDate) { <div><dt>Dates</dt><dd>{{ o.startDate }} → {{ o.endDate }}</dd></div> }
+                  @if (o.capacity) { <div><dt>Places</dt><dd>{{ o.capacity }}</dd></div> }
+                  @if (o.eligibilityNotes) { <div><dt>Public</dt><dd>{{ o.eligibilityNotes }}</dd></div> }
+                </dl>
               </div>
-              <div class="detail-item" *ngIf="opp.capacity">
-                <strong>Places estimées :</strong> {{ opp.capacity }} places
+              <div class="side">
+                <span class="badge" [class]="badgeClass(o.registrationStatus)">{{ label(o.registrationStatus) }}</span>
+                <a routerLink="/communaute" class="btn btn-secondary btn-sm">Rejoindre le Pool</a>
               </div>
-              <div class="detail-item" *ngIf="opp.eligibilityNotes">
-                <strong>Public cible :</strong> {{ opp.eligibilityNotes }}
-              </div>
-            </div>
-          </div>
-
-          <div class="opp-side-action">
-            <a routerLink="/communaute" class="btn btn-primary">
-              Participer via le Pool
-            </a>
-            <span class="demo-caption">Simulation en mode démo</span>
-          </div>
-        </article>
-      </div>
-
-      <ng-template #noOpps>
-        <app-empty-state
-          icon="📅"
-          title="Aucune opportunité disponible actuellement"
-          message="Aucune activité n'est ouverte pour ce domaine pour l'instant. Les prochaines dates seront publiées après validation par l'IFC."
-        >
-          <div style="margin-top: 1rem;">
-            <a routerLink="/communaute" class="btn btn-secondary">S'inscrire au Pool de talents pour être notifié</a>
-          </div>
+            </article>
+          }
+        </div>
+      } @else {
+        <app-empty-state title="Aucune opportunité pour le moment"
+          message="Aucune activité n'est ouverte pour ce domaine. Les prochaines dates seront publiées après validation par l'IFC.">
+          <a routerLink="/communaute" class="btn btn-primary" style="margin-top:1.25rem">Rejoindre la communauté</a>
         </app-empty-state>
-      </ng-template>
+      }
     </div>
   `,
   styles: [`
-    .page-content {
-      padding: 3rem 1.5rem 4rem;
-      max-width: 960px;
-    }
-    .page-header {
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: 2rem;
-    }
-    .section-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .lead {
-      font-size: 1.15rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      margin-top: 0.75rem;
-    }
-    .filter-bar {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      background: var(--color-surface);
-      padding: 1rem 1.5rem;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--color-border);
-    }
-    .filter-label {
-      font-weight: 600;
-      font-size: 0.9rem;
-      white-space: nowrap;
-    }
-    .filter-select {
-      max-width: 300px;
-    }
-    .opps-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.75rem;
-    }
-    .opp-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 2rem;
-      align-items: flex-start;
-      padding: 2rem;
-    }
-    .opp-main {
-      flex: 1;
-    }
-    .opp-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-      flex-wrap: wrap;
-    }
-    .opp-domain-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--color-primary-dark);
-      background-color: var(--color-primary-light);
-      padding: 0.2rem 0.6rem;
-      border-radius: var(--radius-sm);
-      text-transform: uppercase;
-    }
-    .opp-city {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--color-text-muted);
-    }
-    .opp-title {
-      font-size: 1.45rem;
-      margin-bottom: 0.5rem;
-    }
-    .opp-summary {
-      font-size: 1.05rem;
-      font-weight: 500;
-      color: var(--color-text-main);
-      margin-bottom: 0.75rem;
-    }
-    .opp-desc {
-      font-size: 0.95rem;
-      color: var(--color-text-muted);
-      margin-bottom: 1.25rem;
-      line-height: 1.6;
-    }
-    .opp-details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0.75rem;
-      background-color: var(--color-surface-subtle);
-      padding: 1rem 1.25rem;
-      border-radius: var(--radius-md);
-      font-size: 0.875rem;
-    }
-    .detail-item strong {
-      color: var(--color-text-main);
-    }
-    .opp-side-action {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      min-width: 180px;
-    }
-    .demo-caption {
-      font-size: 0.75rem;
-      color: var(--color-text-light);
-    }
-    @media (max-width: 768px) {
-      .opp-item {
-        flex-direction: column;
-      }
-      .opp-side-action {
-        width: 100%;
-      }
-      .opp-side-action .btn {
-        width: 100%;
-      }
+    .body { padding-block: 2.5rem 1rem; }
+    .filter { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; background: var(--paper-2); border-radius: 999px; padding: .6rem 1.4rem; margin-bottom: 1rem; }
+    .filter label { font-weight: 700; font-size: .9rem; }
+    .filter select { max-width: 320px; border-radius: 999px; }
+    .count { margin-left: auto; font-size: .85rem; color: var(--text-muted); }
+    .mock-note { font-size: .85rem; color: var(--text-muted); margin-bottom: 2rem; }
+    .list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .opp { --c: var(--orange); display: grid; grid-template-columns: 110px 1fr auto; background: var(--white); border: 1px solid var(--line);
+           border-radius: var(--radius-leaf); overflow: hidden; }
+    .date-block { background: var(--c); color: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; }
+    .m { font-size: .8rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .d { font-family: var(--font-display); font-size: 3rem; font-weight: 800; line-height: 1; }
+    .main { padding: 1.6rem 1.8rem; }
+    .meta { font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; color: var(--orange-deep); margin-bottom: .4rem; }
+    .main h2 { font-size: 1.6rem; margin-bottom: .6rem; }
+    .main > p { color: var(--text-muted); }
+    dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: .75rem 1.5rem; margin: 1rem 0 0; }
+    dt { font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--color-text-light); font-weight: 700; }
+    dd { margin: 0; font-size: .9rem; font-weight: 500; }
+    .side { padding: 1.6rem; display: flex; flex-direction: column; align-items: flex-end; justify-content: space-between; gap: 1rem; }
+    @media (max-width: 800px) {
+      .opp { grid-template-columns: 1fr; }
+      .date-block { flex-direction: row; gap: .8rem; justify-content: flex-start; }
+      .d { font-size: 1.8rem; }
+      .side { align-items: flex-start; flex-direction: row; flex-wrap: wrap; padding-top: 0; }
     }
   `]
 })
 export class OpportunitiesComponent implements OnInit {
-  private readonly activityRepo = inject(ACTIVITY_REPOSITORY);
+  private readonly repo = inject(ACTIVITY_REPOSITORY);
   private readonly route = inject(ActivatedRoute);
 
   readonly domains = signal<DomainInfo[]>([]);
-  readonly allOpportunities = signal<Opportunity[]>([]);
-  readonly selectedDomain = signal<string>('');
-
-  get filteredOpportunities(): () => Opportunity[] {
-    return () => {
-      const dom = this.selectedDomain();
-      if (!dom) return this.allOpportunities();
-      return this.allOpportunities().filter((o) => o.domain === dom);
-    };
-  }
+  readonly all = signal<Opportunity[]>([]);
+  readonly selected = signal('');
+  readonly filtered = computed(() => {
+    const s = this.selected();
+    return s ? this.all().filter(o => o.domain === s) : this.all();
+  });
 
   async ngOnInit(): Promise<void> {
-    const [domains, opps] = await Promise.all([
-      this.activityRepo.getDomains(),
-      this.activityRepo.getOpportunities()
-    ]);
-    this.domains.set(domains);
-    this.allOpportunities.set(opps);
-
-    this.route.queryParams.subscribe((params) => {
-      if (params['domain']) {
-        this.selectedDomain.set(params['domain']);
-      }
-    });
+    const [d, o] = await Promise.all([this.repo.getDomains(), this.repo.getOpportunities()]);
+    this.domains.set(d);
+    this.all.set(o);
+    this.route.queryParams.subscribe(p => { if (p['domain']) this.selected.set(p['domain']); });
   }
 
-  onDomainChange(event: Event): void {
-    const select = event.target as HTMLSelectElement;
-    this.selectedDomain.set(select.value);
-  }
-
-  getRegistrationBadgeClass(status: string): string {
-    switch (status) {
-      case 'open':
-        return 'badge-selected';
-      case 'soon':
-        return 'badge-review';
-      case 'closed':
-        return 'badge-new';
-      default:
-        return 'badge-new';
-    }
-  }
-
-  getRegistrationLabel(status: string): string {
-    switch (status) {
-      case 'open':
-        return 'Inscriptions ouvertes';
-      case 'soon':
-        return 'Prochainement';
-      case 'closed':
-        return 'Clôturé';
-      default:
-        return status;
-    }
-  }
+  onChange(e: Event): void { this.selected.set((e.target as HTMLSelectElement).value); }
+  color(k: string): string { return DOMAIN_COLORS[k] ?? '#f08a00'; }
+  month(d?: string): string { return d ? new Date(d).toLocaleDateString('fr-FR', { month: 'short' }) : '—'; }
+  day(d?: string): string { return d ? String(new Date(d).getDate()) : '—'; }
+  badgeClass(s: string): string { return 'badge ' + (s === 'open' ? 'badge-selected' : s === 'soon' ? 'badge-review' : 'badge-new'); }
+  label(s: string): string { return s === 'open' ? 'Inscriptions ouvertes' : s === 'soon' ? 'Prochainement' : 'Clôturé'; }
 }

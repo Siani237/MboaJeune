@@ -1,121 +1,57 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NEWS_REPOSITORY } from '../../domain/repositories/news.repository';
 import { FaqItem } from '../../domain/models/news.model';
+import { PageHeroComponent } from '../../shared/components/page-hero.component';
 
 @Component({
   selector: 'app-faq',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink, PageHeroComponent],
   template: `
-    <div class="container page-content">
-      <header class="page-header">
-        <span class="section-tag">Aide & Informations</span>
-        <h1>Foire Aux Questions (FAQ)</h1>
-        <p class="lead">
-          Retrouvez les réponses aux questions les plus courantes sur le fonctionnement de Mboa Jeunes Créatifs, 
-          les conditions d'accès et les modalités de participation.
-        </p>
-      </header>
-
-      <div class="faq-list">
-        <details *ngFor="let item of faq()" class="faq-item card" open>
-          <summary class="faq-question">
-            <span>{{ item.question }}</span>
-          </summary>
-          <div class="faq-answer">
-            <p>{{ item.answer }}</p>
-          </div>
-        </details>
+    <app-page-hero eyebrow="FAQ" heading="Vos questions, nos réponses"
+      lead="L'essentiel sur le programme, l'accès et la participation." />
+    <div class="container body">
+      <div class="list">
+        @for (f of faq(); track f.id; let i = $index) {
+          <details class="q" [open]="i === 0">
+            <summary>
+              <span class="n">{{ (i + 1).toString().padStart(2, '0') }}</span>
+              <span class="t">{{ f.question }}</span>
+              <span class="x" aria-hidden="true"></span>
+            </summary>
+            <p>{{ f.answer }}</p>
+          </details>
+        }
       </div>
-
-      <div class="contact-box card">
-        <h3>Vous avez une autre question ?</h3>
-        <p>L'équipe du programme se tient à votre disposition pour vous orienter et vous conseiller.</p>
-        <a routerLink="/contact" class="btn btn-primary">Nous contacter →</a>
-      </div>
+      <aside class="more">
+        <h2>Une autre question ?</h2>
+        <p>L'équipe se tient à votre disposition.</p>
+        <a routerLink="/contact" class="btn btn-primary">Nous contacter</a>
+      </aside>
     </div>
   `,
   styles: [`
-    .page-content {
-      padding: 3rem 1.5rem 4rem;
-      max-width: 860px;
-    }
-    .page-header {
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: 2rem;
-    }
-    .section-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .lead {
-      font-size: 1.15rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      margin-top: 0.75rem;
-    }
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-    .faq-item {
-      padding: 1.5rem;
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      background-color: var(--color-surface);
-    }
-    .faq-question {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: var(--color-text-main);
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .faq-question::-webkit-details-marker {
-      display: none;
-    }
-    .faq-answer {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--color-surface-subtle);
-      color: var(--color-text-muted);
-      font-size: 0.975rem;
-      line-height: 1.6;
-    }
-    .faq-answer p {
-      margin: 0;
-    }
-    .contact-box {
-      margin-top: 3rem;
-      text-align: center;
-      background-color: var(--color-surface-subtle);
-      padding: 2.5rem;
-    }
-    .contact-box h3 {
-      margin-bottom: 0.5rem;
-    }
-    .contact-box p {
-      color: var(--color-text-muted);
-      margin-bottom: 1.5rem;
-    }
+    .body { padding-block: 3rem 1rem; max-width: 52rem; }
+    .list { border-top: 2px solid var(--ink); }
+    .q { border-bottom: 1px solid var(--color-border-dark); }
+    summary { display: flex; align-items: center; gap: 1.2rem; padding: 1.25rem .25rem; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    .n { font-family: var(--font-display); font-weight: 800; color: var(--orange); font-size: 1.1rem; min-width: 2rem; }
+    .t { flex: 1; font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; }
+    .x { width: 18px; height: 18px; position: relative; flex-shrink: 0; }
+    .x::before, .x::after { content: ''; position: absolute; background: var(--ink); border-radius: 2px; }
+    .x::before { left: 0; right: 0; top: 8px; height: 2px; }
+    .x::after { top: 0; bottom: 0; left: 8px; width: 2px; transition: transform .2s; }
+    details[open] .x::after { transform: scaleY(0); }
+    .q p { padding: 0 .25rem 1.5rem 3.2rem; margin: 0; color: var(--text-muted); font-size: 1.02rem; }
+    .more { margin-top: 3rem; background: var(--ink); color: var(--text-on-dark); border-radius: var(--radius-leaf); padding: 2.2rem; }
+    .more h2 { color: var(--ochre); font-size: 1.6rem; }
+    .more p { color: var(--text-on-dark-muted); }
   `]
 })
 export class FaqComponent implements OnInit {
-  private readonly newsRepo = inject(NEWS_REPOSITORY);
+  private readonly repo = inject(NEWS_REPOSITORY);
   readonly faq = signal<FaqItem[]>([]);
-
-  async ngOnInit(): Promise<void> {
-    const list = await this.newsRepo.getFaq();
-    this.faq.set(list);
-  }
+  async ngOnInit(): Promise<void> { this.faq.set(await this.repo.getFaq()); }
 }

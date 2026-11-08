@@ -19,10 +19,10 @@ import { TalentProfile } from '../../../domain/models/talent.model';
         </div>
 
         <div class="admin-nav-actions">
-          <a routerLink="/admin/talents" class="btn btn-primary btn-sm">📋 Consulter les profils</a>
-          <a routerLink="/admin/appels" class="btn btn-secondary btn-sm">📢 Appels à candidatures</a>
+          <a routerLink="/admin/talents" class="btn btn-primary btn-sm">Consulter les profils</a>
+          <a routerLink="/admin/appels" class="btn btn-secondary btn-sm">Appels à candidatures</a>
           <button type="button" class="btn btn-outline btn-sm" (click)="onResetData()" [disabled]="isResetting()">
-            🔄 {{ isResetting() ? 'Réinitialisation...' : 'Réinitialiser la démo' }}
+            {{ isResetting() ? 'Réinitialisation...' : 'Réinitialiser la démo' }}
           </button>
           <button type="button" class="btn btn-secondary btn-sm" (click)="onLogout()">
             Déconnexion
@@ -227,6 +227,26 @@ import { TalentProfile } from '../../../domain/models/talent.model';
       gap: 1rem;
       flex-wrap: wrap;
     }
+  
+    .admin-header, .detail-header { background: var(--ink); color: var(--text-on-dark); border-radius: var(--radius-lg) 6px var(--radius-lg) 6px; padding: 1.8rem 2rem; border-bottom: none; position: relative; overflow: hidden; }
+    .admin-header::after, .detail-header::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, var(--red) 0 33%, var(--orange) 33% 66%, var(--cyan) 66%); }
+    .admin-header h1, .detail-header h1 { color: var(--ochre); }
+    .admin-header .lead, .header-meta, .header-meta .meta-item { color: var(--text-on-dark-muted); }
+    .admin-tag { color: var(--orange); }
+    .breadcrumb a { color: var(--ochre); }
+    .admin-header .btn-secondary { background: transparent; color: var(--text-on-dark); border-color: var(--line-dark); }
+    .admin-header .btn-outline { color: var(--text-on-dark); border-color: var(--ochre); }
+    .admin-header .btn-outline:hover { background: var(--ochre); color: var(--ink); }
+    .talents-table th { background: var(--ink); color: var(--ochre); border-bottom: none; }
+    .talents-table tr:hover td { background: var(--paper-2); }
+
+    .stat-card { border-top: 6px solid var(--orange); border-radius: var(--radius-leaf); }
+    .stat-card:nth-child(1) { border-top-color: var(--ink); }
+    .stat-card:nth-child(2) { border-top-color: var(--cyan); }
+    .stat-card:nth-child(3) { border-top-color: var(--orange); }
+    .stat-card:nth-child(4) { border-top-color: var(--green); }
+    .stat-number { font-family: var(--font-display); }
+    .analytics-card h3 { border-color: var(--ink); }
   `]
 })
 export class AdminDashboardComponent implements OnInit {

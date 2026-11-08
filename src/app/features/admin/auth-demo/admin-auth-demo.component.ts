@@ -82,6 +82,12 @@ import { AuthDemoService } from '../../../core/services/auth-demo.service';
     .auth-actions .btn {
       width: 100%;
     }
+  
+    .auth-box { background: var(--ink); color: var(--text-on-dark); border: none; border-radius: var(--radius-lg) 6px var(--radius-lg) 6px; box-shadow: 10px 10px 0 var(--orange); }
+    .auth-box h1 { color: var(--ochre); }
+    .auth-desc { color: var(--text-on-dark-muted); }
+    .auth-badge { background: var(--orange); color: var(--ink); }
+    .demo-warning { background: var(--ochre); color: var(--ink); border: none; }
   `]
 })
 export class AdminAuthDemoComponent {

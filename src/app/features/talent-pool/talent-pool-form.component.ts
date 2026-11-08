@@ -7,31 +7,21 @@ import { ACTIVITY_REPOSITORY } from '../../domain/repositories/activity.reposito
 import { DomainInfo } from '../../domain/models/activity.model';
 import { CreateTalentInput, TalentProfile } from '../../domain/models/talent.model';
 import { environment } from '../../../environments/environment';
+import { PageHeroComponent } from '../../shared/components/page-hero.component';
 
 @Component({
   selector: 'app-talent-pool-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink, PageHeroComponent],
   template: `
-    <div class="container page-content">
-      <header class="page-header">
-        <span class="section-tag">Rejoindre la communauté</span>
-        <h1>Formulaire du Pool de talents</h1>
-        <p class="lead">
-          Intégrez le vivier de jeunes créateurs de Mboa Jeunes Créatifs à Yaoundé, Douala et au Cameroun.
-          Faites-vous identifier pour nos prochains ateliers, résidences artistiques et opportunités de formation.
-        </p>
+    <app-page-hero eyebrow="Rejoindre la communauté" heading="Rejoignez le Pool de talents"
+        lead="Faites-vous identifier pour les prochains ateliers et opportunités. L'inscription au Pool ne vaut pas candidature à une activité." />
 
-        <!-- Avertissement démonstration obligatoire -->
-        <div class="demo-alert" role="alert">
-          <div class="demo-alert-badge">MAQUETTE DE DÉMONSTRATION</div>
-          <p>
-            <strong>Attention :</strong> Ce formulaire fonctionne avec un <strong>Mock Backend</strong> local dans votre navigateur.
-            <strong>Ne saisissez aucune donnée personnelle confidentielle réelle.</strong> 
-            Aucun fichier de CV n'est envoyé sur un serveur.
-          </p>
-        </div>
-      </header>
+    <div class="container page-content">
+      <div class="demo-alert" role="alert">
+        <span class="demo-alert-badge">Maquette de démonstration</span>
+        <p><strong>Ne saisissez aucune donnée personnelle réelle.</strong> Ce formulaire fonctionne uniquement dans votre navigateur (Mock Backend). Aucun CV n'est envoyé ni conservé.</p>
+      </div>
 
       <!-- Écran de confirmation après soumission -->
       <div *ngIf="createdProfile() as profile" class="confirmation-card card">
@@ -262,196 +252,38 @@ import { environment } from '../../../environments/environment';
     </div>
   `,
   styles: [`
-    .page-content {
-      padding: 3rem 1.5rem 4rem;
-      max-width: 860px;
-    }
-    .page-header {
-      margin-bottom: 2.5rem;
-      border-bottom: 1px solid var(--color-border);
-      padding-bottom: 2rem;
-    }
-    .section-tag {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .lead {
-      font-size: 1.15rem;
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      margin-top: 0.75rem;
-    }
-    .demo-alert {
-      background-color: var(--color-demo-banner-bg);
-      border: 1px solid #fde68a;
-      border-left: 5px solid var(--color-demo-banner);
-      padding: 1.25rem;
-      border-radius: var(--radius-md);
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--color-demo-banner);
-    }
-    .demo-alert-badge {
-      font-weight: 800;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.4rem;
-    }
-    .demo-alert p {
-      margin: 0;
-    }
-    .talent-form {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .form-section {
-      border: 1px solid var(--color-border);
-      padding: 2rem;
-    }
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--color-text-main);
-      padding: 0 0.5rem;
-    }
-    .section-desc {
-      color: var(--color-text-muted);
-      font-size: 0.9rem;
-      margin-bottom: 1.25rem;
-    }
-    .form-row {
-      display: flex;
-      gap: 1.25rem;
-      flex-wrap: wrap;
-    }
-    .flex-1 {
-      flex: 1;
-      min-width: 250px;
-    }
-    .interests-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-    .checkbox-card {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      background-color: var(--color-surface-subtle);
-      border: 1px solid var(--color-border);
-      padding: 0.85rem;
-      border-radius: var(--radius-md);
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-    .checkbox-card input[type="checkbox"] {
-      margin-top: 0.2rem;
-      cursor: pointer;
-    }
-    .check-content strong {
-      display: block;
-      color: var(--color-text-main);
-    }
-    .check-content span {
-      display: block;
-      font-size: 0.775rem;
-      color: var(--color-text-muted);
-    }
-    .simulated-file-info {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--color-primary-dark);
-      background-color: var(--color-primary-light);
-      padding: 0.4rem 0.75rem;
-      border-radius: var(--radius-sm);
-    }
-    .consent-section {
-      background-color: #fffbeb;
-      border-color: #fde68a;
-    }
-    .consent-box {
-      margin-bottom: 1.5rem;
-    }
-    .consent-text {
-      font-size: 0.9rem;
-      color: #92400e;
-      line-height: 1.5;
-    }
-    .consent-disclaimer {
-      font-size: 0.8rem;
-      color: #b45309;
-      margin-bottom: 1rem;
-    }
-    .checkbox-label {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    .submit-row {
-      display: flex;
-      justify-content: flex-end;
-    }
-    .confirmation-card {
-      padding: 3rem 2rem;
-      text-align: center;
-      background-color: var(--color-surface);
-      border-top: 4px solid var(--color-status-selected);
-    }
-    .confirm-badge {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 800;
-      color: var(--color-status-selected);
-      background-color: var(--color-status-selected-bg);
-      padding: 0.25rem 0.65rem;
-      border-radius: var(--radius-sm);
-      margin-bottom: 1rem;
-    }
-    .confirmation-card h2 {
-      font-size: 1.85rem;
-      margin-bottom: 0.75rem;
-    }
-    .confirm-lead {
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    .summary-box {
-      background-color: var(--color-surface-subtle);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 1.5rem;
-      max-width: 500px;
-      margin: 0 auto 2rem;
-      text-align: left;
-    }
-    .summary-box h3 {
-      font-size: 1rem;
-      margin-bottom: 0.75rem;
-    }
-    .summary-box ul {
-      margin: 0;
-      padding-left: 1.25rem;
-      font-size: 0.9rem;
-      color: var(--color-text-muted);
-    }
-    .summary-box li {
-      margin-bottom: 0.4rem;
-    }
-    .confirm-actions {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
+    .page-content { padding-block: 2.5rem 1rem; max-width: 52rem; }
+    .demo-alert { background: var(--ochre); border-radius: 18px 4px 18px 4px; padding: 1.1rem 1.4rem; margin-bottom: 2.5rem; }
+    .demo-alert-badge { display: inline-block; background: var(--ink); color: var(--ochre); font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: .15rem .6rem; border-radius: 999px; margin-bottom: .4rem; }
+    .demo-alert p { margin: 0; font-size: .92rem; }
+    .talent-form { display: flex; flex-direction: column; gap: 1.75rem; }
+    .form-section { border: 1px solid var(--line); background: var(--white); border-radius: var(--radius-lg) 6px var(--radius-lg) 6px; padding: 2rem; margin: 0; }
+    .section-title { font-family: var(--font-display); font-size: 1.35rem; font-weight: 700; padding: 0 .6rem; background: var(--ink); color: var(--ochre); border-radius: 999px; }
+    .section-desc { color: var(--text-muted); font-size: .9rem; margin: .8rem 0 1.25rem; }
+    .form-row { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: .6rem; }
+    .flex-1 { flex: 1; min-width: 240px; }
+    .interests-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .7rem; margin-top: .5rem; }
+    .checkbox-card { display: flex; align-items: flex-start; gap: .7rem; background: var(--paper-2); border: 2px solid transparent; padding: .85rem 1rem; border-radius: 14px; cursor: pointer; font-size: .9rem; transition: border-color .15s, background .15s; }
+    .checkbox-card:hover { border-color: var(--orange); }
+    .checkbox-card:has(input:checked) { background: #fdebd0; border-color: var(--orange); }
+    .checkbox-card input { margin-top: .25rem; accent-color: var(--orange-deep); width: 18px; height: 18px; }
+    .check-content strong { display: block; }
+    .check-content span { display: block; font-size: .78rem; color: var(--text-muted); }
+    .simulated-file-info { margin-top: .5rem; font-size: .85rem; background: var(--paper-2); padding: .4rem .8rem; border-radius: 10px; }
+    .consent-section { background: var(--paper-2); border-color: var(--ochre); }
+    .consent-text { font-size: .92rem; color: var(--text-muted); margin-top: 1rem; }
+    .consent-disclaimer { font-size: .8rem; color: var(--color-text-light); margin-bottom: 1rem; }
+    .checkbox-label { display: flex; align-items: center; gap: .7rem; cursor: pointer; }
+    .checkbox-label input { accent-color: var(--orange-deep); width: 20px; height: 20px; }
+    .submit-row { display: flex; justify-content: flex-end; margin-top: 1.5rem; }
+    .confirmation-card { padding: 3rem 2rem; text-align: center; border-top: 8px solid var(--green); border-radius: var(--radius-lg) 6px var(--radius-lg) 6px; }
+    .confirm-badge { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .12em; color: var(--green-deep); background: var(--color-status-selected-bg); padding: .25rem .8rem; border-radius: 999px; margin-bottom: 1rem; }
+    .confirm-lead { color: var(--text-muted); font-size: 1.1rem; max-width: 36rem; margin: 0 auto 2rem; }
+    .summary-box { background: var(--paper-2); border-radius: 18px; padding: 1.5rem; max-width: 30rem; margin: 0 auto 2rem; text-align: left; }
+    .summary-box h3 { font-size: 1.05rem; }
+    .summary-box ul { margin: 0; padding-left: 1.2rem; font-size: .9rem; color: var(--text-muted); }
+    .summary-box li { margin-bottom: .4rem; }
+    .confirm-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
   `]
 })
 export class TalentPoolFormComponent implements OnInit {

@@ -1,150 +1,79 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [RouterLink],
   template: `
     <footer class="site-footer">
-      <div class="container footer-content">
-        <div class="footer-grid">
-          <div class="footer-col">
-            <h3 class="footer-title">Mboa Jeunes Créatifs</h3>
-            <p class="footer-desc">
-              Programme de l'Institut français du Cameroun (IFC), financé par le Fonds Équipe France de l'Ambassade de France au Cameroun.
+      <div class="pattern-band" aria-hidden="true"></div>
+      <div class="container">
+        <div class="grid">
+          <section class="about">
+            <p class="wordmark">Mboa <span>Jeunes Créatifs</span></p>
+            <p class="muted">
+              Programme de l'Institut français du Cameroun, financé par le Fonds Équipe France
+              de l'Ambassade de France au Cameroun.
             </p>
-            <p class="footer-tagline">
-              Un espace pour apprendre, créer et faire grandir ses idées.
-            </p>
-          </div>
+            <p class="slogan">Un espace pour apprendre, créer et faire grandir ses idées.</p>
+          </section>
 
-          <div class="footer-col">
-            <h4 class="footer-col-title">Navigation</h4>
-            <ul class="footer-links">
-              <li><a routerLink="/programme">À propos du programme</a></li>
-              <li><a routerLink="/activites">7 Domaines d'activités</a></li>
-              <li><a routerLink="/opportunites">Agenda & Opportunités</a></li>
+          <nav aria-label="Navigation du pied de page">
+            <h2>Explorer</h2>
+            <ul>
+              <li><a routerLink="/programme">Le programme</a></li>
+              <li><a routerLink="/activites">Les 7 domaines</a></li>
+              <li><a routerLink="/opportunites">Opportunités</a></li>
               <li><a routerLink="/actualites">Actualités</a></li>
-              <li><a routerLink="/communaute">Pool de talents (Démo)</a></li>
-              <li><a routerLink="/faq">Foire aux questions</a></li>
-              <li><a routerLink="/contact">Contact</a></li>
+              <li><a routerLink="/temoignages">Témoignages</a></li>
+              <li><a routerLink="/communaute">Rejoindre la communauté</a></li>
             </ul>
-          </div>
+          </nav>
 
-          <div class="footer-col">
-            <h4 class="footer-col-title">Contact & Villes</h4>
-            <p class="footer-info">
-              <strong>Villes :</strong> Yaoundé et Douala<br>
-              <strong>Siège :</strong> 127 Avenue du Président Ahmadou Ahidjo, Yaoundé<br>
-              <strong>Tél :</strong> +237 222 22 09 44 / +237 690 261 970<br>
-              <strong>Email :</strong> info.yde&#64;ifcameroun.com
+          <section>
+            <h2>Nous joindre</h2>
+            <p class="muted">
+              Yaoundé &amp; Douala<br>
+              127 Avenue du Président Ahmadou Ahidjo, Yaoundé<br>
+              +237 222 22 09 44 · +237 690 261 970<br>
+              info.yde&#64;ifcameroun.com
             </p>
-            <p class="footer-disclaimer">
-              <em>* Coordonnées institutionnelles en attente de validation officielle par l'IFC.</em>
-            </p>
-          </div>
+            <p class="note">Coordonnées en attente de validation par l'IFC.</p>
+          </section>
 
-          <div class="footer-col">
-            <h4 class="footer-col-title">Cadre légal & Démo</h4>
-            <p class="footer-legal-notice">
-              Plateforme en mode démonstration. Conforme aux principes de protection des données (Loi n° 2024/017 du 23 décembre 2024).
-            </p>
-            <ul class="footer-links">
-              <li><a routerLink="/mentions-legales">Mentions légales (Brouillon)</a></li>
-              <li><a routerLink="/confidentialite">Politique de confidentialité</a></li>
-              <li><a routerLink="/admin/demo-login" class="admin-link">⚙️ Administration démo</a></li>
+          <nav aria-label="Informations légales">
+            <h2>Cadre légal</h2>
+            <ul>
+              <li><a routerLink="/mentions-legales">Mentions légales (brouillon)</a></li>
+              <li><a routerLink="/confidentialite">Confidentialité (brouillon)</a></li>
+              <li><a routerLink="/faq">FAQ</a></li>
+              <li><a routerLink="/admin/demo-login" class="admin">Espace équipe (démo)</a></li>
             </ul>
-          </div>
+          </nav>
         </div>
 
-        <div class="footer-bottom">
-          <p>© 2026 Mboa Jeunes Créatifs — Institut français du Cameroun. Version de démonstration technique.</p>
-        </div>
+        <p class="legal">© 2026 Mboa Jeunes Créatifs — version de démonstration. Contenus soumis à validation de l'IFC.</p>
       </div>
     </footer>
   `,
   styles: [`
-    .site-footer {
-      background-color: #1c1917;
-      color: #d6d3d1;
-      padding: 3.5rem 0 1.5rem;
-      margin-top: 4rem;
-      font-size: 0.9rem;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .footer-title {
-      color: #ffffff;
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-    .footer-desc {
-      color: #a8a29e;
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    .footer-tagline {
-      color: #fbbf24;
-      font-weight: 500;
-      font-size: 0.85rem;
-    }
-    .footer-col-title {
-      color: #ffffff;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 1rem;
-    }
-    .footer-links {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .footer-links li {
-      margin-bottom: 0.5rem;
-    }
-    .footer-links a {
-      color: #a8a29e;
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-    .footer-links a:hover {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-    .footer-links a.admin-link {
-      color: #f59e0b;
-      font-weight: 600;
-    }
-    .footer-info {
-      color: #a8a29e;
-      line-height: 1.6;
-      font-size: 0.85rem;
-    }
-    .footer-disclaimer {
-      font-size: 0.75rem;
-      color: #78716c;
-      margin-top: 0.5rem;
-    }
-    .footer-legal-notice {
-      font-size: 0.8rem;
-      color: #a8a29e;
-      line-height: 1.4;
-      margin-bottom: 0.75rem;
-    }
-    .footer-bottom {
-      border-top: 1px solid #292524;
-      padding-top: 1.5rem;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #78716c;
-    }
+    .site-footer { background: var(--ink); color: var(--text-on-dark); margin-top: 5rem; }
+    .grid { display: grid; grid-template-columns: 1.4fr 1fr 1.3fr 1fr; gap: 2.5rem; padding: 3.5rem 0 2rem; }
+    .wordmark { font-family: var(--font-display); font-size: 1.9rem; font-weight: 800; color: var(--ochre); margin-bottom: .6rem; line-height: 1; }
+    .wordmark span { display: block; font-family: var(--font-sans); font-size: .72rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-on-dark-muted); font-weight: 500; margin-top: .35rem; }
+    .muted { color: var(--text-on-dark-muted); font-size: .9rem; }
+    .slogan { font-family: var(--font-display); font-style: italic; color: var(--ochre); font-size: 1.05rem; }
+    h2 { font-family: var(--font-sans); font-size: .75rem; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1rem; }
+    ul { list-style: none; padding: 0; margin: 0; }
+    li { margin-bottom: .55rem; }
+    a { color: var(--text-on-dark); font-size: .92rem; }
+    a:hover { color: var(--ochre); }
+    a.admin { color: var(--cyan); }
+    .note { font-size: .75rem; color: #8d8073; font-style: italic; }
+    .legal { border-top: 1px solid var(--line-dark); padding: 1.25rem 0 1.75rem; font-size: .78rem; color: #8d8073; margin: 0; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .grid { grid-template-columns: 1fr; } }
   `]
 })
 export class FooterComponent {}

@@ -26,7 +26,7 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state.comp
 
         <div class="header-actions">
           <button type="button" class="btn btn-primary" (click)="onExportCsv()">
-            📥 Exporter CSV (Données démo)
+            Exporter CSV (Données démo)
           </button>
         </div>
       </header>
@@ -184,7 +184,7 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state.comp
 
       <ng-template #noResults>
         <app-empty-state
-          icon="🔍"
+          icon=""
           title="Aucun profil ne correspond à vos filtres"
           message="Modifiez vos critères de recherche ou réinitialisez les filtres pour afficher l'ensemble des profils."
         >
@@ -342,6 +342,18 @@ import { EmptyStateComponent } from '../../../shared/components/empty-state.comp
       padding: 0.3rem 0.5rem;
       width: auto;
     }
+  
+    .admin-header, .detail-header { background: var(--ink); color: var(--text-on-dark); border-radius: var(--radius-lg) 6px var(--radius-lg) 6px; padding: 1.8rem 2rem; border-bottom: none; position: relative; overflow: hidden; }
+    .admin-header::after, .detail-header::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, var(--red) 0 33%, var(--orange) 33% 66%, var(--cyan) 66%); }
+    .admin-header h1, .detail-header h1 { color: var(--ochre); }
+    .admin-header .lead, .header-meta, .header-meta .meta-item { color: var(--text-on-dark-muted); }
+    .admin-tag { color: var(--orange); }
+    .breadcrumb a { color: var(--ochre); }
+    .admin-header .btn-secondary { background: transparent; color: var(--text-on-dark); border-color: var(--line-dark); }
+    .admin-header .btn-outline { color: var(--text-on-dark); border-color: var(--ochre); }
+    .admin-header .btn-outline:hover { background: var(--ochre); color: var(--ink); }
+    .talents-table th { background: var(--ink); color: var(--ochre); border-bottom: none; }
+    .talents-table tr:hover td { background: var(--paper-2); }
   `]
 })
 export class AdminTalentsListComponent implements OnInit {

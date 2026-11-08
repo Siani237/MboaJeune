@@ -1,46 +1,30 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-empty-state',
   standalone: true,
-  imports: [CommonModule],
   template: `
-    <div class="empty-state">
-      <div class="empty-icon" *ngIf="icon">{{ icon }}</div>
-      <h3 class="empty-title">{{ title }}</h3>
-      <p class="empty-message">{{ message }}</p>
-      <ng-content></ng-content>
+    <div class="empty">
+      <div class="glyph" aria-hidden="true"><i></i><i></i><i></i></div>
+      <h3>{{ title }}</h3>
+      <p>{{ message }}</p>
+      <ng-content />
     </div>
   `,
   styles: [`
-    .empty-state {
-      text-align: center;
-      padding: 3rem 1.5rem;
-      background-color: var(--color-surface);
-      border: 1px dashed var(--color-border-dark);
-      border-radius: var(--radius-lg);
-      margin: 1.5rem 0;
-    }
-    .empty-icon {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
-    }
-    .empty-title {
-      font-size: 1.25rem;
-      color: var(--color-text-main);
-      margin-bottom: 0.5rem;
-    }
-    .empty-message {
-      color: var(--color-text-muted);
-      max-width: 500px;
-      margin: 0 auto;
-      font-size: 0.95rem;
-    }
+    .empty { text-align: center; padding: 3rem 1.5rem; background: var(--paper-2);
+             border: 2px dashed var(--color-border-dark); border-radius: var(--radius-lg); margin: 1.5rem 0; }
+    .glyph { display: inline-grid; grid-template-columns: repeat(3, 10px); gap: 4px; transform: skewX(-14deg); margin-bottom: 1rem; }
+    .glyph i { display: block; width: 10px; height: 34px; border-radius: 10px; }
+    .glyph i:nth-child(1) { background: var(--red); }
+    .glyph i:nth-child(2) { background: var(--orange); }
+    .glyph i:nth-child(3) { background: var(--cyan); }
+    h3 { margin-bottom: .5rem; }
+    p { color: var(--text-muted); max-width: 34rem; margin: 0 auto; }
   `]
 })
 export class EmptyStateComponent {
-  @Input() icon?: string = '📂';
-  @Input({ required: true }) title: string = 'Aucun élément disponible';
-  @Input({ required: true }) message: string = 'Aucun contenu ne correspond à vos critères pour le moment.';
+  @Input() icon?: string;
+  @Input({ required: true }) title = '';
+  @Input({ required: true }) message = '';
 }
