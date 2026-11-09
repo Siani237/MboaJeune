@@ -24,6 +24,11 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
       <!-- ÉCRAN DE CONFIRMATION SUCCÈS -->
       @if (createdProfile(); as profile) {
         <div class="confirmation-card card">
+          <div class="confirm-logos">
+            <img src="/logos/logo-mboa-color.png" alt="Mboa Jeunes Créatifs" class="confirm-mboa-logo" />
+            <span class="confirm-sep">•</span>
+            <img src="/logos/logo-ifc-color.png" alt="Institut français du Cameroun" class="confirm-ifc-logo" />
+          </div>
           <div class="confirm-badge">INSCRIPTION VALIDÉE</div>
           <h2>Bienvenue dans le Pool Mboa Jeunes Créatifs !</h2>
           <p class="confirm-lead">
@@ -351,6 +356,30 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
       text-align: center;
       border-top: 8px solid var(--green);
       border-radius: var(--radius-leaf);
+    }
+    .confirm-logos {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+      background: var(--paper-2);
+      padding: .65rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+    .confirm-mboa-logo {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+    .confirm-ifc-logo {
+      height: 30px;
+      width: auto;
+      object-fit: contain;
+    }
+    .confirm-sep {
+      color: var(--line-dark);
+      font-weight: 700;
     }
     .confirm-badge {
       display: inline-block;

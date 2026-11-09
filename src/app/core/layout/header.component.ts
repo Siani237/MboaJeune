@@ -8,12 +8,18 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   template: `
     <header class="site-header">
       <div class="container bar">
-        <a routerLink="/" class="brand" aria-label="Mboa Jeunes Créatifs — accueil">
-          <span class="mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="brand-text">
-            <span class="brand-title">Mboa</span>
-            <span class="brand-sub">Jeunes Créatifs</span>
-          </span>
+        <a routerLink="/" class="brand-lockup" aria-label="Mboa Jeunes Créatifs — accueil">
+          <img
+            src="/logos/logo-mboa-darkbg.png"
+            alt="Mboa Jeunes Créatifs"
+            class="logo-mboa"
+          />
+          <span class="brand-divider" aria-hidden="true"></span>
+          <img
+            src="/logos/logo-ifc-white.png"
+            alt="Institut français du Cameroun"
+            class="logo-ifc"
+          />
         </a>
 
         <button type="button" class="toggle" (click)="toggle()" [attr.aria-expanded]="open()"
@@ -39,17 +45,34 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   `,
   styles: [`
     .site-header { background: var(--ink); position: sticky; top: 0; z-index: 50; }
-    .bar { display: flex; align-items: center; justify-content: space-between; height: 4.5rem; gap: 1rem; }
-    .brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; }
-    .brand:hover { text-decoration: none; }
-    .mark { display: grid; grid-template-columns: repeat(3, 8px); gap: 3px; transform: skewX(-14deg); }
-    .mark i { display: block; width: 8px; height: 30px; border-radius: 8px; }
-    .mark i:nth-child(1) { background: var(--red); }
-    .mark i:nth-child(2) { background: var(--orange); height: 36px; margin-top: -3px; }
-    .mark i:nth-child(3) { background: var(--cyan); }
-    .brand-text { display: flex; flex-direction: column; line-height: 1; }
-    .brand-title { font-family: var(--font-display); font-size: 1.6rem; font-weight: 800; color: var(--ochre); }
-    .brand-sub { font-size: .7rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-on-dark-muted); margin-top: .2rem; }
+    .bar { display: flex; align-items: center; justify-content: space-between; height: 4.8rem; gap: 1rem; }
+    .brand-lockup {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.15rem;
+      text-decoration: none;
+      padding: .25rem 0;
+      transition: opacity .2s ease;
+    }
+    .brand-lockup:hover { opacity: 0.9; text-decoration: none; }
+    .logo-mboa {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.45));
+    }
+    .brand-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .logo-ifc {
+      height: 32px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.95;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    }
     .nav { display: flex; align-items: center; gap: 1.5rem; }
     ul { display: flex; list-style: none; margin: 0; padding: 0; gap: 1.3rem; }
     ul a { color: var(--text-on-dark); font-size: .92rem; font-weight: 500; padding: .35rem 0; position: relative; }
@@ -58,6 +81,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     ul a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; border-radius: 3px; background: var(--orange); }
     .toggle { display: none; background: none; border: 2px solid var(--line-dark); border-radius: 12px; padding: .55rem .6rem; cursor: pointer; flex-direction: column; gap: 4px; }
     .toggle span { width: 22px; height: 2px; background: var(--ochre); border-radius: 2px; }
+    @media (max-width: 1100px) {
+      .logo-mboa { height: 38px; }
+      .logo-ifc { height: 28px; }
+      .brand-lockup { gap: .85rem; }
+    }
     @media (max-width: 1040px) {
       .toggle { display: flex; }
       .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch;
@@ -66,6 +94,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
       ul { flex-direction: column; gap: .2rem; }
       ul a { display: block; padding: .7rem 0; border-bottom: 1px solid var(--line-dark); }
       ul a.active::after { display: none; }
+    }
+    @media (max-width: 520px) {
+      .brand-divider, .logo-ifc { display: none; }
+      .logo-mboa { height: 36px; }
     }
   `]
 })

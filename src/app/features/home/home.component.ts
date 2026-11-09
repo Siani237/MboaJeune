@@ -18,20 +18,23 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       <div class="container hero-cinematic-content">
         <!-- Logo / Partenaires en haut au centre -->
         <div class="hero-presenter-badge">
-          <div class="presenter-mark">
-            <span class="flag-dot cm-green"></span>
-            <span class="flag-dot cm-red"></span>
-            <span class="flag-dot cm-yellow"></span>
+          <div class="presenter-pill">
+            <img src="/logos/logo-ifc-white.png" alt="Institut français du Cameroun" class="hero-ifc-logo" />
+            <span class="presenter-divider" aria-hidden="true"></span>
+            <span class="presenter-fef">FONDS ÉQUIPE FRANCE</span>
           </div>
-          <span class="presenter-names">INSTITUT FRANÇAIS DU CAMEROUN • FONDS ÉQUIPE FRANCE</span>
           <span class="presenter-tag">PRÉSENTENT</span>
         </div>
 
-        <!-- Titre monumental centré en typographie d'affiche -->
-        <h1 class="hero-cinematic-title">
-          <span class="title-line title-mboa">MBOA</span>
-          <span class="title-line title-sub">JEUNES CRÉATIFS</span>
-        </h1>
+        <!-- Pièce maîtresse : Logo Officiel du Programme Mboa Jeunes Créatifs (MBOA en blanc) -->
+        <div class="hero-brand-centerpiece">
+          <h1 class="sr-only">Mboa Jeunes Créatifs</h1>
+          <img
+            src="/logos/logo-mboa-white.png"
+            alt="Mboa Jeunes Créatifs"
+            class="hero-brand-img"
+          />
+        </div>
 
         <!-- Sous-titre immersif en capitales aérées -->
         <p class="hero-cinematic-lead">
@@ -288,30 +291,35 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      gap: .35rem;
+      gap: .45rem;
       margin-bottom: 1.5rem;
     }
-    .presenter-mark {
+    .presenter-pill {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      margin-bottom: .2rem;
+      gap: .9rem;
+      padding: .45rem 1.25rem;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      backdrop-filter: blur(8px);
     }
-    .flag-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
+    .hero-ifc-logo {
+      height: 24px;
+      width: auto;
+      object-fit: contain;
     }
-    .flag-dot.cm-green { background: #2a9d47; }
-    .flag-dot.cm-red { background: #d8402e; }
-    .flag-dot.cm-yellow { background: #f28b00; }
-
-    .presenter-names {
-      font-size: .75rem;
+    .presenter-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(255, 255, 255, 0.3);
+    }
+    .presenter-fef {
+      font-size: .74rem;
       font-weight: 700;
-      letter-spacing: .22em;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.95);
       text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
     }
     .presenter-tag {
@@ -323,32 +331,26 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       opacity: .95;
     }
 
-    /* Titre monumental centré en typographie d'affiche */
-    .hero-cinematic-title {
+    /* Logo Officiel Mboa dans le hero */
+    .hero-brand-centerpiece {
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      margin: 0 0 1.25rem;
-      font-family: var(--font-poster, Impact, sans-serif);
-      text-transform: uppercase;
-      line-height: 0.9;
-      color: #ffffff;
-      text-shadow:
-        0 4px 30px rgba(0, 0, 0, 0.95),
-        0 2px 8px rgba(0, 0, 0, 0.85);
-      user-select: none;
+      align-items: center;
+      margin: 0.25rem 0 1.5rem;
+      width: 100%;
     }
-    .title-line.title-mboa {
-      font-size: clamp(3.8rem, 11vw, 7.8rem);
-      letter-spacing: 0.08em;
-      color: #ffffff;
+    .hero-brand-img {
+      width: 100%;
+      max-width: 580px;
+      height: auto;
+      object-fit: contain;
+      filter:
+        drop-shadow(0 4px 25px rgba(0, 0, 0, 0.9))
+        drop-shadow(0 0 40px rgba(234, 3, 18, 0.3));
+      transition: transform .3s ease;
     }
-    .title-line.title-sub {
-      font-size: clamp(2.3rem, 6.2vw, 4.6rem);
-      letter-spacing: 0.12em;
-      color: #ffffff;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+    .hero-brand-img:hover {
+      transform: scale(1.02);
     }
 
     /* Sous-titre immersif en capitales aérées */
@@ -854,6 +856,9 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       .hero-cinematic {
         min-height: 560px;
         padding-top: 3.5rem;
+      }
+      .hero-brand-img {
+        max-width: 420px;
       }
       .hero-cinematic-footer {
         flex-direction: column;

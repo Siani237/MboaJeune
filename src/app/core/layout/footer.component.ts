@@ -11,7 +11,19 @@ import { RouterLink } from '@angular/router';
       <div class="container">
         <div class="grid">
           <section class="about">
-            <p class="wordmark">Mboa <span>Jeunes Créatifs</span></p>
+            <div class="footer-logos">
+              <img
+                src="/logos/logo-mboa-darkbg.png"
+                alt="Mboa Jeunes Créatifs"
+                class="footer-logo-mboa"
+              />
+              <span class="footer-logo-divider" aria-hidden="true"></span>
+              <img
+                src="/logos/logo-ifc-white.png"
+                alt="Institut français du Cameroun"
+                class="footer-logo-ifc"
+              />
+            </div>
             <p class="muted">
               Programme de l'Institut français du Cameroun, financé par le Fonds Équipe France
               de l'Ambassade de France au Cameroun.
@@ -59,8 +71,31 @@ import { RouterLink } from '@angular/router';
   styles: [`
     .site-footer { background: var(--ink); color: var(--text-on-dark); margin-top: 5rem; }
     .grid { display: grid; grid-template-columns: 1.4fr 1fr 1.3fr 1fr; gap: 2.5rem; padding: 4rem 0 2rem; }
-    .wordmark { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--ochre); margin-bottom: .6rem; line-height: 1; }
-    .wordmark span { display: block; font-family: var(--font-sans); font-size: .75rem; letter-spacing: .22em; text-transform: uppercase; color: var(--text-on-dark-muted); font-weight: 500; margin-top: .35rem; }
+    .footer-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+    .footer-logo-mboa {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.4));
+    }
+    .footer-logo-divider {
+      width: 1px;
+      height: 34px;
+      background: rgba(255, 255, 255, 0.22);
+    }
+    .footer-logo-ifc {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      opacity: 0.95;
+      filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+    }
     .muted { color: var(--text-on-dark-muted); font-size: .92rem; line-height: 1.6; }
     .slogan { font-family: var(--font-display); font-style: italic; color: var(--ochre); font-size: 1.1rem; margin-top: 1rem; }
     h2 { font-family: var(--font-sans); font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem; }

@@ -18,6 +18,16 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
         <div class="split-lead">
           <span class="eyebrow">Origine &amp; Financement</span>
           <h2>Un partenariat stratégique pour la jeunesse créative</h2>
+
+          <div class="institution-lockup">
+            <div class="lockup-badge">
+              <img src="/logos/logo-mboa-color.png" alt="Logo Mboa Jeunes Créatifs" class="lockup-mboa" />
+            </div>
+            <span class="lockup-plus">+</span>
+            <div class="lockup-badge">
+              <img src="/logos/logo-ifc-color.png" alt="Institut français du Cameroun" class="lockup-ifc" />
+            </div>
+          </div>
         </div>
         <div class="text">
           <p>
@@ -97,6 +107,38 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
     .body { padding-block: 4.5rem 2rem; }
     .split { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3.5rem; margin-bottom: 4rem; align-items: flex-start; }
     .split-lead h2 { font-size: 2.3rem; margin-top: .4rem; line-height: 1.2; }
+    .institution-lockup {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.75rem;
+      flex-wrap: wrap;
+    }
+    .lockup-badge {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: .65rem 1.15rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .lockup-mboa {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+    .lockup-ifc {
+      height: 30px;
+      width: auto;
+      object-fit: contain;
+    }
+    .lockup-plus {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--orange-deep);
+    }
     .text p { font-size: 1.12rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 1.2rem; }
 
     .photo-banner-grid {

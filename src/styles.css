@@ -20,7 +20,10 @@
   --orange: #f28b00;
   --orange-deep: #b85c00;
   --ochre: #e8b04a;
-  --red: #d8402e;
+  --red: #ea0312;
+  --red-deep: #b8020e;
+  --ifc-blue: #2f549a;
+  --ifc-blue-dark: #1b3566;
   --green: #2a9d47;
   --green-deep: #1a6f30;
   --cyan: #17b7cc;
@@ -326,6 +329,19 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 }
 .page-hero h1 { color: var(--ochre); }
 .page-hero .lead { color: var(--text-on-dark-muted); }
+
+/* Accessibilité SEO */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
