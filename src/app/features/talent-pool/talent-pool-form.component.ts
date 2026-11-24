@@ -299,14 +299,14 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
       font-size: .92rem;
       transition: all .2s ease;
     }
-    .checkbox-card:hover { border-color: var(--orange); }
+    .checkbox-card:hover { border-color: var(--brand-red); }
     .checkbox-card:has(input:checked) {
-      background: #fdecd2;
-      border-color: var(--orange);
+      background: var(--color-primary-light);
+      border-color: var(--brand-red);
     }
     .checkbox-card input {
       margin-top: .25rem;
-      accent-color: var(--orange-deep);
+      accent-color: var(--brand-red);
       width: 18px;
       height: 18px;
     }
@@ -340,7 +340,7 @@ import { PageHeroComponent } from '../../shared/components/page-hero.component';
       font-size: .95rem;
     }
     .checkbox-label input {
-      accent-color: var(--orange-deep);
+      accent-color: var(--brand-red);
       width: 20px;
       height: 20px;
     }

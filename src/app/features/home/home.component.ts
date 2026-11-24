@@ -379,27 +379,28 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #f28b00 0%, #d97706 100%);
+      background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-red-deep) 100%);
       color: #ffffff;
       font-family: var(--font-sans);
+      font-style: italic;
       font-size: .95rem;
       font-weight: 800;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       padding: 1.05rem 2.85rem;
-      border-radius: 4px;
+      border-radius: var(--radius-btn);
       border: 1px solid rgba(255, 255, 255, 0.4);
       box-shadow:
-        0 0 25px rgba(242, 139, 0, 0.45),
+        0 0 25px var(--brand-red-glow),
         0 6px 20px rgba(0, 0, 0, 0.45);
       transition: all .25s ease;
       text-decoration: none;
     }
     .btn-cinematic-primary:hover {
-      background: linear-gradient(135deg, #ff981a 0%, #f28b00 100%);
+      background: linear-gradient(135deg, var(--brand-red-hover) 0%, var(--brand-red) 100%);
       transform: translateY(-2px) scale(1.02);
       box-shadow:
-        0 0 35px rgba(242, 139, 0, 0.65),
+        0 0 35px rgba(234, 3, 18, 0.55),
         0 8px 24px rgba(0, 0, 0, 0.5);
       border-color: rgba(255, 255, 255, 0.6);
       color: #ffffff;
@@ -529,7 +530,7 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       font-family: var(--font-display);
       font-size: 2.8rem;
       font-weight: 800;
-      color: var(--orange);
+      color: var(--brand-red);
       line-height: 1;
       display: block;
       margin-bottom: .85rem;
@@ -588,9 +589,9 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
       transition: all .2s ease;
     }
     .slider-btn:hover {
-      background: var(--ink);
-      color: var(--ochre);
-      border-color: var(--ink);
+      background: var(--brand-red);
+      color: #fff;
+      border-color: var(--brand-red);
       transform: scale(1.05);
     }
 
@@ -713,7 +714,7 @@ import { DomainGlyphComponent, DOMAIN_COLORS } from '../../shared/components/dom
     }
     .domain-slide-card:hover .slide-link {
       gap: .8rem;
-      color: var(--orange-deep);
+      color: var(--brand-red-deep);
     }
 
     /* AGENDA / OPPORTUNITÉS */

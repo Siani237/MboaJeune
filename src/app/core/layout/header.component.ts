@@ -78,7 +78,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     ul a { color: var(--text-on-dark); font-size: .92rem; font-weight: 500; padding: .35rem 0; position: relative; }
     ul a:hover { color: var(--ochre); text-decoration: none; }
     ul a.active { color: var(--ochre); font-weight: 700; }
-    ul a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; border-radius: 3px; background: var(--orange); }
+    ul a.active::after { content: ''; position: absolute; left: 0; right: 0; bottom: -4px; height: 3px; border-radius: 3px; background: var(--brand-red); }
     .toggle { display: none; background: none; border: 2px solid var(--line-dark); border-radius: 12px; padding: .55rem .6rem; cursor: pointer; flex-direction: column; gap: 4px; }
     .toggle span { width: 22px; height: 2px; background: var(--ochre); border-radius: 2px; }
     @media (max-width: 1100px) {
@@ -89,7 +89,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
     @media (max-width: 1040px) {
       .toggle { display: flex; }
       .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch;
-             background: var(--ink); padding: 1.25rem 1.5rem 1.5rem; border-bottom: 3px solid var(--orange); }
+             background: var(--ink); padding: 1.25rem 1.5rem 1.5rem; border-bottom: 3px solid var(--brand-red); }
       .nav.open { display: flex; }
       ul { flex-direction: column; gap: .2rem; }
       ul a { display: block; padding: .7rem 0; border-bottom: 1px solid var(--line-dark); }

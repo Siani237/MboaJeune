@@ -36,9 +36,16 @@
   --line: #e3d6c1;
   --line-dark: #352b24;
 
-  --color-primary: var(--orange-deep);
-  --color-primary-hover: #8f4700;
-  --color-primary-light: #fdebd0;
+  /* Identité logo Mboa : rouge signature, blanc, noir — typo capitale italique grasse */
+  --brand-red: var(--red);
+  --brand-red-hover: #ff1f2e;
+  --brand-red-deep: var(--red-deep);
+  --brand-red-glow: rgba(234, 3, 18, 0.38);
+  --radius-btn: 6px 18px 6px 18px;
+
+  --color-primary: var(--red-deep);
+  --color-primary-hover: #8f010b;
+  --color-primary-light: #fde3e5;
   --color-primary-dark: var(--ink);
   --color-bg: var(--paper);
   --color-surface: var(--white);
@@ -97,7 +104,7 @@ h3 { font-size: 1.35rem; }
 h4 { font-size: 1.05rem; }
 p { margin-top: 0; margin-bottom: 1rem; }
 
-a { color: var(--orange-deep); text-decoration: none; transition: all .2s ease; }
+a { color: var(--color-primary); text-decoration: none; transition: all .2s ease; }
 a:hover { color: var(--color-primary-hover); }
 
 a:focus-visible, button:focus-visible, input:focus-visible,
@@ -122,7 +129,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   font-weight: 800;
   letter-spacing: .16em;
   text-transform: uppercase;
-  color: var(--orange-deep);
+  color: var(--brand-red-deep);
   margin-bottom: 1rem;
 }
 .eyebrow::before {
@@ -211,12 +218,14 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   animation: float-slow 6s ease-in-out infinite;
 }
 
-/* Boutons haut de gamme */
+/* Boutons — alignés sur le logo Mboa (capitales italiques grasses, rouge signature) */
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
   padding: .85rem 1.75rem;
-  font: 600 .98rem var(--font-sans);
-  border-radius: 999px;
+  font: italic 800 .92rem var(--font-sans);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-btn);
   border: 2px solid transparent;
   cursor: pointer;
   text-decoration: none;
@@ -229,14 +238,15 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 .btn:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
 
 .btn-primary {
-  background: var(--orange);
-  color: var(--ink);
-  border-color: var(--orange);
+  background: var(--brand-red);
+  color: #fff;
+  border-color: var(--brand-red);
 }
 .btn-primary:hover {
-  background: #ff9d1a;
-  border-color: #ff9d1a;
-  color: var(--ink);
+  background: var(--brand-red-hover);
+  border-color: var(--brand-red-hover);
+  color: #fff;
+  box-shadow: 0 10px 26px -8px var(--brand-red-glow);
 }
 
 .btn-secondary {
@@ -246,6 +256,7 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
 }
 .btn-secondary:hover {
   background: var(--ink-3);
+  border-color: var(--brand-red);
   color: #fff;
 }
 
@@ -259,16 +270,17 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   color: var(--text-on-dark);
 }
 .on-dark .btn-outline, .btn-outline.on-dark {
-  color: var(--text-on-dark);
-  border-color: var(--ochre);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.85);
 }
 .on-dark .btn-outline:hover, .btn-outline.on-dark:hover {
-  background: var(--ochre);
-  color: var(--ink);
+  background: var(--brand-red);
+  border-color: var(--brand-red);
+  color: #fff;
 }
 
-.btn-sm { padding: .55rem 1.15rem; font-size: .88rem; }
-.btn-lg { padding: 1.1rem 2.25rem; font-size: 1.08rem; }
+.btn-sm { padding: .55rem 1.15rem; font-size: .8rem; }
+.btn-lg { padding: 1.1rem 2.25rem; font-size: 1rem; }
 
 /* Cartes & blocs */
 .card {
@@ -313,8 +325,8 @@ select:focus-visible, textarea:focus-visible, summary:focus-visible {
   transition: border-color .2s, box-shadow .2s;
 }
 .form-control:focus {
-  border-color: var(--orange);
-  box-shadow: 0 0 0 4px rgba(242, 139, 0, .22);
+  border-color: var(--brand-red);
+  box-shadow: 0 0 0 4px rgba(234, 3, 18, .16);
   outline: none;
 }
 .form-hint { font-size: .84rem; color: var(--text-muted); margin-top: .4rem; }
